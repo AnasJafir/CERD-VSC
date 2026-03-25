@@ -14,3 +14,6 @@ env/
 data/*.pdf
 data/*.docx
 data/*.xlsx
+.env.example
+test_groq.py
+
