@@ -211,7 +211,9 @@ if mode == "Assistant IA 🤖 (Batch)":
                         
                         # 3. Analyze with AI (AutoProcessor handles fallback)
                         data = processor.analyze_document(text)
-                        
+                        data = processor.analyze_document(text)
+                        if isinstance(data, dict) and 'error' in data:
+                            raise ValueError(f"Erreur IA : {data['error']}")
                         # Read bytes safely before the file gets closed
                         file_bytes = uploaded_file.getvalue() if "Complet" in import_scope else None
                         
