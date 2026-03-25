@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Streamlit App",
+			"type": "shell",
+			"command": "streamlit",
+			"args": [
+				"run",
+				"ingest_app.py"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "none"
+		},
+		{
+			"label": "Running App using Streamlit",
+			"type": "shell",
+			"command": "streamlit",
+			"args": [
+				"run",
+				"app.py"
+			],
+			"isBackground": true,
+			"group": "none"
+		}
+	]
+}

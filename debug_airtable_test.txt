@@ -1,0 +1,4 @@
+  File "<string>", line 34
+    print(f'Fichier present: {\
+                             ^
+SyntaxError: '{' was never closed

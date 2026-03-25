@@ -1,0 +1,48 @@
+{
+  "Domaines": {
+    "id": "tblxOUhsFcz4S5Ojm",
+    "fields": {
+      "Code_Domaine": "fldpzi8vdUGkJ7kSa",
+      "Nom_Domaine": "fldfFs7lBn5xUxJ8O",
+      "Secteurs_SousSecteurs": "fldxQNCQH8PtXNW1J",
+      "Themes": "fldq9Hj46XPqxpOuJ"
+    }
+  },
+  "Secteurs_SousSecteurs": {
+    "id": "tblBo99UNx1L68IlF",
+    "fields": {
+      "Code": "fld3tSu5jVDYpnVkF",
+      "Nom": "fldvdRzZkRT8IsxNq",
+      "Parent_Domaine": "fldpLLBjt0T7nuK5G",
+      "Parent_Secteur": "fldYLTOfIjjhDb9Td",
+      "Themes": "fldZF5AEZKcMFD0io"
+    }
+  },
+  "Themes": {
+    "id": "tblhnYkyZnHL7LE32",
+    "fields": {
+      "Code_Theme": "fldX1kYBeun7LhOCz",
+      "Nom_Theme": "fldWhUpEtXaGDQHGc",
+      "Parent_SSS": "fld3AwBAgvUvLdmTN",
+      "Articles": "fldZhT3mvktLvj6QD",
+      "Parent_Domaine": "fldiXEkXoSXWhC8tI"
+    }
+  },
+  "Articles": {
+    "id": "tblOM6Q2wNxd23U1P",
+    "fields": {
+      "Titre": "fldxXDiyw080MDpHH",
+      "Série": "fldmT5RoYc7PRFDu0",
+      "Theme": "fldh3iy0tM90bVYin",
+      "Code_Theme_Ref": "fld5iVOhNsa7SQIy5",
+      "Index": "fldoPQ4lPFYFlEcrb",
+      "Extrait": "flda5Vv9g02WbGinJ",
+      "Mots_Cles": "fldbXVjyXCT7Udsmu",
+      "Source": "fldHJskv8OczOBjGV",
+      "Date_Publication": "fldxYsucmlTFFCyuX",
+      "Contenu_Texte": "fldKLiQcnakYa2wME",
+      "Fichier": "fldWWeUfB2eal6O48",
+      "Contenu_Visuel": "fldFExGO5Xshr7LmI"
+    }
+  }
+}

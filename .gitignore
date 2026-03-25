@@ -1,0 +1,16 @@
+# Environnement
+.env
+.DS_Store
+__pycache__/
+*.pyc
+temp_freeze.txt
+
+# Dossiers virtuels (si vous en avez un)
+venv/
+env/
+.venv/
+
+# Données locales de test (optionnel, à vous de voir si vous voulez exclure les fichiers excel/word de test)
+data/*.pdf
+data/*.docx
+data/*.xlsx
