@@ -656,3 +656,5 @@ if mode == "Saisie Manuelle ✍️":
 
 
 
+
+
