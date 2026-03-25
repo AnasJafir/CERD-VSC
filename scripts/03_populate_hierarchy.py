@@ -120,9 +120,10 @@ def main():
         if p_dom in map_dom:
             fields["Parent_Domaine"] = [map_dom[p_dom]]
         
-        # Link to Secteur (Text Field now)
-        if p_sect:
-            fields["Parent_Secteur"] = p_sect
+                # Link to Secteur
+        if p_sect and p_sect in map_sss:
+            fields['Parent_Secteur'] = [map_sss[p_sect]]
+
             
         rid = upsert(tid_sss, "Code", code, fields)
         if rid: map_sss[code] = rid
@@ -154,3 +155,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
