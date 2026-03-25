@@ -60,16 +60,16 @@ with st.sidebar:
         help="Complet : stocke aussi le fichier PDF, les images et le texte intégral sur Cloudinary. Métadonnées : importe seulement Titre, Thème, Résumé, Mots-clés, Source et Date."
     )
     
-    gemini_key = os.getenv('GEMINI_API_KEY')
-    groq_key = os.getenv('GROQ_API_KEY')
+    gemini_key = os.environ.get('GEMINI_API_KEY') or st.secrets.get('GEMINI_API_KEY')
+    groq_key = os.environ.get('GROQ_API_KEY') or st.secrets.get('GROQ_API_KEY')
     
     if "Assistant" in mode:
         if not gemini_key:
             gemini_key = st.text_input('Clé d\'accès Assistant', type='password',
                                        help='Veuillez insérer la clé d\'accès pour activer l\'analyse intelligente.')
     
-    airtable_token = os.getenv('AIRTABLE_ACCESS_TOKEN')
-    airtable_base = os.getenv('AIRTABLE_BASE_ID')
+    airtable_token = os.environ.get('AIRTABLE_ACCESS_TOKEN') or st.secrets.get('AIRTABLE_ACCESS_TOKEN')
+    airtable_base = os.environ.get('AIRTABLE_BASE_ID') or st.secrets.get('AIRTABLE_BASE_ID')
 
     if not airtable_token:
         st.error('Manque de configuration Airtable.')
@@ -77,7 +77,7 @@ with st.sidebar:
         
     st.divider()
     st.subheader("☁️ Hébergement (Cloudinary)")
-    cloudinary_url = os.getenv('CLOUDINARY_URL')
+    cloudinary_url = os.environ.get('CLOUDINARY_URL') or st.secrets.get('CLOUDINARY_URL')
     if not cloudinary_url:
         st.info("Ajoutez CLOUDINARY_URL dans .env pour activer l'hébergement.")
         c_name = st.text_input("Cloud Name")
@@ -653,3 +653,6 @@ if mode == "Saisie Manuelle ✍️":
                         
                     except Exception as e:
                         st.error(f"Erreur lors de la création : {e}")
+
+
+

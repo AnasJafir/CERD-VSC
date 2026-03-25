@@ -352,7 +352,8 @@ class CloudinaryManager:
                 )
             else:
                 # Explicitly configure from CLOUDINARY_URL env var
-                c_url = os.getenv('CLOUDINARY_URL', '').strip()
+                import streamlit as st
+                c_url = (os.environ.get('CLOUDINARY_URL') or st.secrets.get('CLOUDINARY_URL', '')).strip()
                 if c_url:
                     cloudinary.config(cloudinary_url=c_url)
                     print(f"[Cloudinary] Configuré via CLOUDINARY_URL env var")
@@ -438,5 +439,6 @@ class AirtableManager:
 
     def create_article(self, data):
         return self.table.create(data)
+
 
 
