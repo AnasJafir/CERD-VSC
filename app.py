@@ -32,7 +32,6 @@ if os.path.exists(file_path):
     TextExtractor = module.TextExtractor
     GeminiProcessor = module.GeminiProcessor
     HuggingFaceProcessor = getattr(module, 'HuggingFaceProcessor', None)
-    AutoProcessor = getattr(module, 'AutoProcessor', None)
     AirtableManager = module.AirtableManager
     ImageExtractor = module.ImageExtractor
     CloudinaryManager = module.CloudinaryManager
@@ -61,8 +60,7 @@ with st.sidebar:
     )
 
     gemini_key = os.environ.get('GEMINI_API_KEY') or st.secrets.get('GEMINI_API_KEY')
-    groq_key = os.environ.get('GROQ_API_KEY') or st.secrets.get('GROQ_API_KEY')
-
+    
     if "Assistant" in mode:
         if not gemini_key:
             gemini_key = st.text_input('Clé d\'accès Assistant', type='password',
@@ -152,9 +150,9 @@ def get_theme_options():
     return []
 
 @st.cache_resource
-def get_processor(g_key, gr_key, mode_choice):
-    if AutoProcessor:
-        return AutoProcessor(g_key, gr_key, mode_choice, 'config/parsed_data.json')
+def get_processor(g_key):
+    if GeminiProcessor:
+        return GeminiProcessor(g_key, 'config/parsed_data.json')
     return None
 
 at_manager = AirtableManager(airtable_token, airtable_base)
@@ -179,14 +177,14 @@ if mode == "Assistant IA 🤖 (Batch)":
     # PROCESS BUTTON
     if uploaded_files and len(uploaded_files) > 0:
         if st.button(f'Lancer l\'analyse de {len(uploaded_files)} fichiers 🧠', type='primary'):
-            if not gemini_key and not groq_key:
-                st.error("Au moins une clé API (Gemini ou Groq) est requise.")
+            if not gemini_key:
+                st.error("La clé API Gemini est requise.")
             else:
                 progress_text = "Opération en cours..."
                 my_bar = st.progress(0, text=progress_text)
 
                 new_queue = []
-                processor = get_processor(gemini_key, groq_key, "Auto (Gemini → Groq)")
+                processor = get_processor(gemini_key)
 
                 for i, uploaded_file in enumerate(uploaded_files):
                     # Progress Update
@@ -662,3 +660,5 @@ if mode == "Saisie Manuelle ✍️":
 
                     except Exception as e:
                         st.error(f"Erreur lors de la création : {e}")
+
+
