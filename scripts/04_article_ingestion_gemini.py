@@ -133,15 +133,14 @@ class GeminiProcessor:
         4. "Source" (String): Entité productrice ou mention 'Source :' en bas de page.
         5. "Date_Publication" (String): Format YYYY-MM-DD.
         6. "Code_Theme_Ref" (String): Trouve le nom du thème (souvent après 'THEME :') ou analyse le sujet, et cherche ce NOM dans la "Liste des Codes Thématiques" fournie. Renvoie UNIQUEMENT le code de notre base de données (ex: 90.1) tiré de cette liste. NE REPRENDS JAMAIS les chiffres écrits dans l'article pour le thème (ils sont souvent faux). Seule notre liste fait foi.
-        7. "Série" (String): Classification "c1", "c2", "c3", "c4" (minuscule). Extrait-la si mentionnée (ex: 'ARTICLE: c3').
-        8. "Contenu_Principal" (String): Le TEXTE INTÉGRAL de l'article.
-           IMPORTANT : 
-           - GARDE LES SAUTS DE LIGNE ET LES PARAGRAPHES (utilise \\n\\n pour séparer les paragraphes).
-           - COPIER-COLLER EXACT DU TEXTE D'ORIGINE en gardant toutes les phrases de l'article intactes, du début à la fin.
-           - NE SUPPRIME PAS le début de l'article même s'il correspond au titre ou à l'extrait. L'article doit être complet.
-           - Supprime uniquement le BLOC D'EN-TÊTE formel contenant les métadonnées (le tableau avec THEME:, TITRE:, EXTRAIT:, DATE:, etc.) s'il y en a un. Le reste en dessous est le contenu.
-           - INTERDICTION TOTALE DE REFORMULER, DE RÉSUMER OU D'INVENTER UN SEUL MOT.
-
+        7. "Série" (String): Classification "c1", "c2", "c3", "c4" (minuscule). Cherche RIGOUREUSEMENT dans le texte une mention de "ARTICLE c3", "ARTICLE : c3", ou "ARTICLE N° c3", même si collée au passage en PDF. N'invente pas. Si introuvable, déduis la série la plus cohérente, ou mets "c1".
+        8. "Contenu_Principal" (String): Le contenu ADDITIONNEL de l'article (c'est-à-dire le texte qui vient souvent sous forme de paragraphes après l'en-tête, accompagnant des graphiques ou des tableaux).
+           IMPORTANT :
+           - NE COPIE PAS EN DOUBLE les informations qui figurent déjà dans les autres champs (pas de Titre, pas de Date, pas de THEME, pas de Mots-clés, pas d'Extrait). 
+           - L'IA doit ignorer toute l'en-tête contenant les métadonnées. Commence l'extraction strictement au niveau du corps du texte.
+           - Si l'article ne contient QUE l'en-tête de métadonnées et PAS de texte additionnel, ce champ doit être STRICTEMENT VIDE ou "".
+           - GARDE LES SAUTS DE LIGNE ET LES PARAGRAPHES (utilise \n\n pour séparer les paragraphes).
+           - Organise et aère intelligemment le contenu pour qu'il soit lisible, mais SANS CHANGER le sens ou les mots. SANS REFORMULER ni résumer l'idée globale.
 
         EXEMPLE DE RÉPONSE JSON ATTENDUE :
         {{
@@ -331,6 +330,7 @@ class AirtableManager:
 
     def create_article(self, data):
         return self.table.create(data)
+
 
 
 
