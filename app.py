@@ -27,7 +27,7 @@ if os.path.exists(file_path):
     module = importlib.util.module_from_spec(spec)
     sys.modules[module_name] = module
     spec.loader.exec_module(module)
-    
+
     # Aliases
     TextExtractor = module.TextExtractor
     GeminiProcessor = module.GeminiProcessor
@@ -52,29 +52,29 @@ with st.sidebar:
         ["Assistant IA 🤖 (Batch)", "Saisie Manuelle ✍️"],
         help="Batch : Uploadez plusieurs fichiers, l'IA les analyse automatiquement. Manuel : Remplissez vous-même les champs."
     )
-    
+
     # Import Scope
     import_scope = st.radio(
         "Type d'Import",
         ["Complet (Méta + Fichiers + Texte)", "Métadonnées Uniquement"],
         help="Complet : stocke aussi le fichier PDF, les images et le texte intégral sur Cloudinary. Métadonnées : importe seulement Titre, Thème, Résumé, Mots-clés, Source et Date."
     )
-    
+
     gemini_key = os.environ.get('GEMINI_API_KEY') or st.secrets.get('GEMINI_API_KEY')
     groq_key = os.environ.get('GROQ_API_KEY') or st.secrets.get('GROQ_API_KEY')
-    
+
     if "Assistant" in mode:
         if not gemini_key:
             gemini_key = st.text_input('Clé d\'accès Assistant', type='password',
                                        help='Veuillez insérer la clé d\'accès pour activer l\'analyse intelligente.')
-    
+
     airtable_token = os.environ.get('AIRTABLE_ACCESS_TOKEN') or st.secrets.get('AIRTABLE_ACCESS_TOKEN')
     airtable_base = os.environ.get('AIRTABLE_BASE_ID') or st.secrets.get('AIRTABLE_BASE_ID')
 
     if not airtable_token:
         st.error('Manque de configuration Airtable.')
         st.stop()
-        
+
     st.divider()
     st.subheader("☁️ Hébergement (Cloudinary)")
     cloudinary_url = os.environ.get('CLOUDINARY_URL') or st.secrets.get('CLOUDINARY_URL')
@@ -89,7 +89,7 @@ with st.sidebar:
 
     # ── GUIDE UTILISATEUR ────────────────────────────────────────────────
     st.divider()
-    
+
     with st.expander("📖 Comment utiliser cet outil ?"):
         st.markdown("""
 **Mode Assistant IA (recommandé)**
@@ -184,38 +184,39 @@ if mode == "Assistant IA 🤖 (Batch)":
             else:
                 progress_text = "Opération en cours..."
                 my_bar = st.progress(0, text=progress_text)
-                
+
                 new_queue = []
                 processor = get_processor(gemini_key, groq_key, "Auto (Gemini → Groq)")
-                
+
                 for i, uploaded_file in enumerate(uploaded_files):
                     # Progress Update
                     progress_percent = int(((i) / len(uploaded_files)) * 100)
                     my_bar.progress(progress_percent, text=f"Analyse {i+1}/{len(uploaded_files)}: {uploaded_file.name}")
-                    
+
                     try:
                         # 1. Extract Text
                         text = TextExtractor.extract(uploaded_file, uploaded_file.name)
                         if not text:
                             raise ValueError("Impossible d'extraire le texte.")
-                            
+
                         # 1.b Introduce minimal delay between API calls to avoid 429 bursts if looping quickly
                         if i > 0:
                              import time
                              time.sleep(2)
-                             
+
                         # 2. Extract Images (Only if Scope is Complet)
                         images = []
                         if "Complet" in import_scope:
                              images = ImageExtractor.extract_images(uploaded_file, uploaded_file.name)
-                        
+
                         # 3. Analyze with AI (AutoProcessor handles fallback)
+                        data = processor.analyze_document(text)
                         data = processor.analyze_document(text)
                         if isinstance(data, dict) and 'error' in data:
                             raise ValueError(f"Erreur IA : {data['error']}")
                         # Read bytes safely before the file gets closed
                         file_bytes = uploaded_file.getvalue() if "Complet" in import_scope else None
-                        
+
                         entry = {
                             'filename': uploaded_file.name,
                             'file_bytes': file_bytes, # Store robust bytes
@@ -226,7 +227,7 @@ if mode == "Assistant IA 🤖 (Batch)":
                             'error_msg': None
                         }
                         new_queue.append(entry)
-                        
+
                     except Exception as e:
                         new_queue.append({
                             'filename': uploaded_file.name,
@@ -236,7 +237,7 @@ if mode == "Assistant IA 🤖 (Batch)":
                             'text': '',
                             'images': []
                         })
-                
+
                 my_bar.progress(100, text="Analyse Terminée !")
                 st.session_state.batch_queue = new_queue
                 st.session_state.current_idx = 0
@@ -247,88 +248,6 @@ if mode == "Assistant IA 🤖 (Batch)":
         queue = st.session_state.batch_queue
         total = len(queue)
         current = st.session_state.current_idx
-        
-                # Bulk Import Button
-        import_all = st.button(f"🚀 Importer tout le lot restant ({len([q for q in queue if q['status'] != 'Imported'])})", type="secondary")
-        if import_all:
-            st.session_state.bulk_importing = True
-            st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
-
-        # Execute Bulk Import Logic
-        if st.session_state.get("bulk_importing", False):
-            st.session_state.bulk_importing = False
-            progress_bar = st.progress(0, text="Préparation de l'importation par lot...")
-            c_mgr = CloudinaryManager(c_name, c_key, c_secret) if "Complet" in import_scope else None
-            success_count = 0
-            
-            for index, item in enumerate(queue):
-                if item["status"] == "Imported" or item["status"] == "Error":
-                    continue
-                    
-                progress_bar.progress((index + 1) / total, text=f"Importation {index + 1}/{total} : {item['filename']}")
-                try:
-                    # 1. Setup Variables
-                    doc_url = None
-                    img_urls = []
-                    item_data = item["data"]
-                    final_content = ""
-                    
-                    if "Complet" in import_scope:
-                        # Upload Document
-                        if item.get("file_bytes"):
-                            file_stream = io.BytesIO(item["file_bytes"])
-                            file_stream.name = item["filename"]
-                            rtype = "raw" if item["filename"].lower().endswith((".pdf", ".docx", ".zip")) else "auto"
-                            doc_url = c_mgr.upload_file(file_stream, item["filename"], resource_type=rtype)
-
-                        # Upload ALL images for this item automatically
-                        for img_name, img_bytes in item["images"]:
-                            i_io = io.BytesIO(img_bytes)
-                            url = c_mgr.upload_file(i_io, img_name, resource_type="image")
-                            if url:
-                                img_urls.append({"url": url, "filename": img_name})
-                                
-                        final_content = item_data.get("Contenu_Texte", "")
-                        
-                    # 4. Prepare Payload
-                    theme_code = item_data.get("Code_Theme_Ref", "")
-                    theme_rec_id = at_manager.get_theme_record_id(theme_code)
-                    theme_link = [theme_rec_id] if theme_rec_id else []
-                    serie = item_data.get("Série", "c1")
-                    new_index, id_article_str = at_manager.get_next_index(serie if serie else "c1", theme_code)
-
-                    doc_attachment = []
-                    if doc_url:
-                        doc_attachment.append({"url": doc_url, "filename": item["filename"]})
-
-                    payload = {
-                        "Titre": item_data.get("Titre", ""),
-                        "Série": serie,
-                        "Code_Theme_Ref": theme_code,
-                        "Theme": theme_link,
-                        "Index": new_index,
-                        "Extrait": item_data.get("Extrait", ""),
-                        "Mots_Cles": item_data.get("Mots_Cles", ""),
-                        "Source": item_data.get("Source", ""),
-                        "Date_Publication": item_data.get("Date_Publication") if item_data.get("Date_Publication") else None,
-                        "Contenu_Texte": final_content,
-                        "Fichier": doc_attachment,
-                        "Contenu_Visuel": img_urls
-                    }
-
-                    # 5. Create
-                    at_manager.create_article(payload)
-                    st.session_state.batch_queue[index]["status"] = "Imported"
-                    success_count += 1
-                except Exception as e:
-                    st.session_state.batch_queue[index]["status"] = "Error"
-                    st.session_state.batch_queue[index]["error_msg"] = str(e)
-                    
-            progress_bar.progress(100, text=f"Terminé ! {success_count} articles importés avec succès.")
-            st.success(f"Opération par lot terminée : {success_count} articles importés.")
-            import time
-            time.sleep(2)
-            st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
 
         # Navigation
         col_nav1, col_nav2, col_nav3 = st.columns([1, 4, 1])
@@ -342,10 +261,10 @@ if mode == "Assistant IA 🤖 (Batch)":
                 st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
         with col_nav2:
              st.markdown(f"<h3 style='text-align: center'>Document {current + 1} / {total} : {queue[current]['filename']}</h3>", unsafe_allow_html=True)
-        
+
         entry = queue[current]
         data = entry['data']
-        
+
         if entry['status'] == 'Error':
             st.error(f"Erreur lors de l'analyse : {entry['error_msg']}")
         elif entry['status'] == 'Imported':
@@ -355,14 +274,14 @@ if mode == "Assistant IA 🤖 (Batch)":
             st.divider()
             with st.form(f'validation_form_{current}'):
                 col1, col2 = st.columns(2)
-                
+
                 with col1:
                     titre = st.text_input(
                         'Titre',
                         value=data.get('Titre', ''),
                         help="Titre principal du document tel qu'il apparaît en première page."
                     )
-                    
+
                     # Force valid series from Airtable config (lowercase c1, c2, c3, c4)
                     extracted_serie = str(data.get('Série', 'c1')).lower().strip()
                     allowed_series = ['c1', 'c2', 'c3', 'c4']
@@ -375,7 +294,7 @@ if mode == "Assistant IA 🤖 (Batch)":
                     default_idx = 0
                     if extracted_serie in allowed_series:
                         default_idx = allowed_series.index(extracted_serie)
-                    
+
                     serie_label = st.selectbox(
                         'Série',
                         options=list(series_labels.values()),
@@ -388,7 +307,7 @@ if mode == "Assistant IA 🤖 (Batch)":
                         value=data.get('Code_Theme_Ref', ''),
                         help="Code thématique (ex: 10.1, 32.2). Consultez la liste 🗂️ dans la barre latérale."
                     )
-                    
+
                 with col2:
                     date_pub = st.text_input(
                         'Date Publication',
@@ -407,7 +326,7 @@ if mode == "Assistant IA 🤖 (Batch)":
                     )
 
                 extrait = st.text_area('Extrait', value=data.get('Extrait', ''), height=100)
-                
+
                 # Content
                 content_val = data.get('Contenu_Principal', entry['text'])
                 if not content_val or len(content_val) < 50:
@@ -451,26 +370,26 @@ if mode == "Assistant IA 🤖 (Batch)":
                                         st.info(f"📎 Fichier source uploadé : {doc_url[:80]}...")
                                     else:
                                         st.error("⚠️ Échec upload document source sur Cloudinary")
-                                
+
                                 # 3. Upload Images
                                 for i_name, i_bytes in selected_images:
                                     i_io = io.BytesIO(i_bytes)
                                     url = c_mgr.upload_file(i_io, i_name, resource_type="image")
                                     if url:
                                         img_urls.append({"url": url, "filename": i_name}) # Airtable format
-                                
+
                                 final_content = contenu_texte
-                            
+
                             # 4. Prepare Payload
                             theme_rec_id = at_manager.get_theme_record_id(theme_code)
                             theme_link = [theme_rec_id] if theme_rec_id else []
-                            
+
                             new_index, id_article_str = at_manager.get_next_index(serie if serie else "c1", theme_code)
-                            
+
                             doc_attachment = []
                             if doc_url:
                                 doc_attachment.append({"url": doc_url, "filename": entry['filename']})
-                            
+
                             payload = {
                                 'Titre': titre,
                                 'Série': serie,
@@ -485,14 +404,14 @@ if mode == "Assistant IA 🤖 (Batch)":
                                 'Fichier': doc_attachment,
                                 'Contenu_Visuel': img_urls
                             }
-                            
+
                             # 5. Create
                             at_manager.create_article(payload)
-                            
+
                             st.success(f"✅ Article '{titre}' importé avec succès !")
                             st.session_state.batch_queue[current]['status'] = 'Imported'
                             st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
-                            
+
                         except Exception as e:
                             st.error(f"Erreur Import: {e}")
 
@@ -502,16 +421,16 @@ if mode == "Saisie Manuelle ✍️":
     if 'success_msg' in st.session_state:
         st.success(st.session_state.success_msg)
         del st.session_state.success_msg
-        
+
     st.header('Saisie Manuelle de Nouvel Article')
-    
+
     # 1. OPTIONAL: DOCUMENT LOADING (Extraire Images only)
     uploaded_manual_file = None
-    
+
     if "Complet" in import_scope:
         with st.expander("📂 Charger le Document Source & Extraire Visuels (Optionnel)", expanded=True):
             uploaded_manual_file = st.file_uploader("Fichier pour extraction d'images & Archivage", type=['pdf', 'docx'], key='manual_upload')
-            
+
             if uploaded_manual_file is not None:
                 if st.button("🖼️ Extraire les Visuels", type="secondary"):
                     with st.spinner("Extraction en cours..."):
@@ -519,15 +438,15 @@ if mode == "Saisie Manuelle ✍️":
                             # Extract Images ONLY (Text is manually entered)
                             # Uses generic extract_images which supports PDF & DOCX
                             images = ImageExtractor.extract_images(uploaded_manual_file, uploaded_manual_file.name)
-                            
+
                             # Update Session State
                             st.session_state.manual_data = {} # Reset data
                             # Ensure no text is pre-filled
                             if 'Contenu_Texte' in st.session_state.manual_data:
                                 del st.session_state.manual_data['Contenu_Texte']
-                            
+
                             st.session_state.manual_images = images
-                            
+
                             nb = len(images)
                             st.success(f"{nb} image(s) extraite(s) ! Cochez celles à conserver ci-dessous.")
                         except Exception as e:
@@ -537,15 +456,15 @@ if mode == "Saisie Manuelle ✍️":
     with st.form("manual_entry_form", clear_on_submit=True):
         # Manual Mode: No auto-fill from AI
         # Note: clear_on_submit=True resets the form fields after successful submit (and rerun)
-        
+
         col1, col2 = st.columns(2)
-        
+
         with col1:
             titre = st.text_input(
                 'Titre *',
                 help="Titre principal du document. Champ obligatoire."
             )
-            
+
             series_labels_manual = [
                 'c1 — Général',
                 'c2 — Entreprise',
@@ -559,7 +478,7 @@ if mode == "Saisie Manuelle ✍️":
                 help="Classification du document. c1=Général, c2=Entreprise, c3=Coûts, c4=Documentation pro."
             )
             serie = serie_label_manual.split(' — ')[0]
-            
+
             # Theme with Search
             theme_selection = st.selectbox(
                 'Thème (Rechercher par Code ou Nom)',
@@ -569,7 +488,7 @@ if mode == "Saisie Manuelle ✍️":
                 help="Tapez un code (ex: 32.2) ou un mot-clé pour filtrer. Consultez 🗂️ dans la barre latérale."
             )
             theme_code = theme_selection.split(' - ')[0].strip() if theme_selection else ""
-            
+
         with col2:
             date_pub = st.text_input(
                 'Date Publication (AAAA-MM-JJ)',
@@ -585,20 +504,20 @@ if mode == "Saisie Manuelle ✍️":
             )
 
         extrait = st.text_area('Extrait', height=100)
-        
+
         # Extended fields
         final_content = ""
         manual_img_file = None
         selected_extracted_indices = []
-        
+
         if "Complet" in import_scope:
             st.divider()
             st.subheader("Contenu Complet & Images")
-            
+
             # Text Content (Raw text available if doc loaded)
             # Use distinct key or default empty since clear_on_submit is True
             final_content = st.text_area('Contenu Intégral', height=300)
-            
+
             # MULTI-IMAGE SELECTION (Extracted)
             st.write("---")
             st.write("📸 **Gestion des Images**")
@@ -613,13 +532,13 @@ if mode == "Saisie Manuelle ✍️":
                         # Ensure unique key for checkbox
                         if st.checkbox(f"Importer {idx+1}", value=False, key=f"extract_img_{idx}"):
                              selected_extracted_indices.append(idx)
-            
+
             # B. Manual Upload Section
             st.markdown("**Ajouter une image supplémentaire :**")
             manual_img_file = st.file_uploader("Image Illustrative (JPG/PNG)", type=['png', 'jpg', 'jpeg'], accept_multiple_files=False)
-        
+
         submitted = st.form_submit_button('Créer l\'article 💾', type='primary')
-        
+
         if submitted:
             if not titre:
                 st.error("Le Titre est obligatoire.")
@@ -646,24 +565,24 @@ if mode == "Saisie Manuelle ✍️":
                                     file_bytes = target_file.getvalue()
                                     file_stream = io.BytesIO(file_bytes)
                                     file_stream.name = target_file.name
-                                    
+
                                     # Use 'raw' strictly for docs, CloudinaryManager handles extension but explicit is safer
                                     rtype = 'raw' if target_file.name.lower().endswith(('.pdf','.docx','.zip')) else 'auto'
-                                    
+
                                     # st.info(f"DEBUG: Taille du fichier = {len(file_bytes)} bytes")
-                                    
+
                                     doc_url = c_mgr.upload_file(file_stream, target_file.name, resource_type=rtype)
-                                    
+
                                     if doc_url:
                                         st.info(f"📎 Fichier source uploadé : {doc_url[:80]}...")
                                     else:
                                         st.error("⚠️ Échec upload document sur Cloudinary (URL vide)")
-                                        
+
                                 except Exception as upload_err:
                                     st.error(f"Erreur upload fichier: {upload_err}")
                             else:
                                 st.warning("⚠️ Aucun fichier source détecté pour l'upload.")
-                            
+
                             # Process Extracted Images (Selected)
                             if selected_extracted_indices and st.session_state.manual_images:
                                 for idx in selected_extracted_indices:
@@ -672,7 +591,7 @@ if mode == "Saisie Manuelle ✍️":
                                     url = c_mgr.upload_file(i_io, i_name, resource_type="image")
                                     if url:
                                         img_urls.append({"url": url, "filename": i_name})
-                                        
+
                             # Process Manual Image
                             if manual_img_file:
                                 i_bytes = manual_img_file.getvalue()
@@ -684,29 +603,29 @@ if mode == "Saisie Manuelle ✍️":
                         # 2. Airtable Logic
                         theme_rec_id = at_manager.get_theme_record_id(theme_code)
                         theme_link = [theme_rec_id] if theme_rec_id else []
-                        
+
                         final_serie = serie if serie else "c1"
                         new_index, id_article_str = at_manager.get_next_index(final_serie, theme_code)
-                        
+
                         doc_attachment = []
                         if doc_url and target_file:
                              doc_attachment.append({"url": doc_url, "filename": target_file.name})
                         elif doc_url:
                              doc_attachment.append({"url": doc_url})
-                        
+
                         # 2. Airtable Logic
                         theme_rec_id = at_manager.get_theme_record_id(theme_code)
                         theme_link = [theme_rec_id] if theme_rec_id else []
-                        
+
                         final_serie = serie if serie else "c1"
                         new_index, id_article_str = at_manager.get_next_index(final_serie, theme_code)
-                        
+
                         doc_attachment = []
                         if doc_url and target_file:
                              doc_attachment.append({"url": doc_url, "filename": target_file.name})
                         elif doc_url:
                              doc_attachment.append({"url": doc_url})
-                        
+
                         payload = {
                             'Titre': titre,
                             'Série': final_serie,
@@ -721,25 +640,18 @@ if mode == "Saisie Manuelle ✍️":
                             'Fichier': doc_attachment,
                             'Contenu_Visuel': img_urls
                         }
-                        
+
                         at_manager.create_article(payload)
-                        
+
                         # Set Success Message in Session State for persistence after rerun
                         st.session_state.success_msg = f"✅ Article '{titre}' créé avec succès ! (Code: {id_article_str})"
-                        
+
                         # Reset Data
                         st.session_state.manual_data = {}
                         st.session_state.manual_images = []
-                        
+
                         # Rerun to clear form and show success message
                         if hasattr(st, 'rerun'): st.rerun() 
-                        
+
                     except Exception as e:
                         st.error(f"Erreur lors de la création : {e}")
-
-
-
-
-
-
-
