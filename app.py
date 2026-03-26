@@ -248,6 +248,88 @@ if mode == "Assistant IA 🤖 (Batch)":
         total = len(queue)
         current = st.session_state.current_idx
         
+                # Bulk Import Button
+        import_all = st.button(f"🚀 Importer tout le lot restant ({len([q for q in queue if q['status'] != 'Imported'])})", type="secondary")
+        if import_all:
+            st.session_state.bulk_importing = True
+            st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
+
+        # Execute Bulk Import Logic
+        if st.session_state.get("bulk_importing", False):
+            st.session_state.bulk_importing = False
+            progress_bar = st.progress(0, text="Préparation de l'importation par lot...")
+            c_mgr = CloudinaryManager(c_name, c_key, c_secret) if "Complet" in import_scope else None
+            success_count = 0
+            
+            for index, item in enumerate(queue):
+                if item["status"] == "Imported" or item["status"] == "Error":
+                    continue
+                    
+                progress_bar.progress((index + 1) / total, text=f"Importation {index + 1}/{total} : {item['filename']}")
+                try:
+                    # 1. Setup Variables
+                    doc_url = None
+                    img_urls = []
+                    item_data = item["data"]
+                    final_content = ""
+                    
+                    if "Complet" in import_scope:
+                        # Upload Document
+                        if item.get("file_bytes"):
+                            file_stream = io.BytesIO(item["file_bytes"])
+                            file_stream.name = item["filename"]
+                            rtype = "raw" if item["filename"].lower().endswith((".pdf", ".docx", ".zip")) else "auto"
+                            doc_url = c_mgr.upload_file(file_stream, item["filename"], resource_type=rtype)
+
+                        # Upload ALL images for this item automatically
+                        for img_name, img_bytes in item["images"]:
+                            i_io = io.BytesIO(img_bytes)
+                            url = c_mgr.upload_file(i_io, img_name, resource_type="image")
+                            if url:
+                                img_urls.append({"url": url, "filename": img_name})
+                                
+                        final_content = item_data.get("Contenu_Texte", "")
+                        
+                    # 4. Prepare Payload
+                    theme_code = item_data.get("Code_Theme_Ref", "")
+                    theme_rec_id = at_manager.get_theme_record_id(theme_code)
+                    theme_link = [theme_rec_id] if theme_rec_id else []
+                    serie = item_data.get("Série", "c1")
+                    new_index, id_article_str = at_manager.get_next_index(serie if serie else "c1", theme_code)
+
+                    doc_attachment = []
+                    if doc_url:
+                        doc_attachment.append({"url": doc_url, "filename": item["filename"]})
+
+                    payload = {
+                        "Titre": item_data.get("Titre", ""),
+                        "Série": serie,
+                        "Code_Theme_Ref": theme_code,
+                        "Theme": theme_link,
+                        "Index": new_index,
+                        "Extrait": item_data.get("Extrait", ""),
+                        "Mots_Cles": item_data.get("Mots_Cles", ""),
+                        "Source": item_data.get("Source", ""),
+                        "Date_Publication": item_data.get("Date_Publication") if item_data.get("Date_Publication") else None,
+                        "Contenu_Texte": final_content,
+                        "Fichier": doc_attachment,
+                        "Contenu_Visuel": img_urls
+                    }
+
+                    # 5. Create
+                    at_manager.create_article(payload)
+                    st.session_state.batch_queue[index]["status"] = "Imported"
+                    success_count += 1
+                except Exception as e:
+                    st.session_state.batch_queue[index]["status"] = "Error"
+                    st.session_state.batch_queue[index]["error_msg"] = str(e)
+                    
+            progress_bar.progress(100, text=f"Terminé ! {success_count} articles importés avec succès.")
+            st.success(f"Opération par lot terminée : {success_count} articles importés.")
+            import time
+            time.sleep(2)
+            st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
+
         # Navigation
         col_nav1, col_nav2, col_nav3 = st.columns([1, 4, 1])
         with col_nav1:
@@ -654,6 +736,7 @@ if mode == "Saisie Manuelle ✍️":
                         
                     except Exception as e:
                         st.error(f"Erreur lors de la création : {e}")
+
 
 
 
