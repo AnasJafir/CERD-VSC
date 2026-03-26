@@ -410,6 +410,13 @@ if mode == "Assistant IA 🤖 (Batch)":
 
                             st.success(f"✅ Article '{titre}' importé avec succès !")
                             st.session_state.batch_queue[current]['status'] = 'Imported'
+                            
+                            # Check if all files in queue are imported, if so clear the queue
+                            if all(item.get('status') == 'Imported' for item in st.session_state.batch_queue):
+                                st.session_state.batch_queue = []
+                                st.success("🎉 Tous les articles ont été importés avec succès ! Le formulaire est réinitialisé.")
+                                import time
+                                time.sleep(2)
                             st.experimental_rerun() if hasattr(st, 'experimental_rerun') else st.rerun()
 
                         except Exception as e:
