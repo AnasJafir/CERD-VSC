@@ -12,7 +12,8 @@ import json
 import re
 from pathlib import Path
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 import datetime
 
 # Extractors
@@ -105,21 +106,16 @@ def gemini_extract(text, api_key, theme_context_str):
     """Uses Gemini 1.5 Flash to structured JSON extraction."""
     if not api_key:
         return {"Error": "Clé API manquante", "Titre": "Erreur", "Theme_Code_Suggested": ""}
-        
-    genai.configure(api_key=api_key)
+    
+    client = genai.Client(api_key=api_key)
     
     # Model Configuration
-    generation_config = {
-        "temperature": 0.1,
-        "top_p": 0.95,
-        "top_k": 64,
-        "max_output_tokens": 8192,
-        "response_mime_type": "application/json",
-    }
-    
-    model = genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
-        generation_config=generation_config,
+    generation_config = types.GenerateContentConfig(
+        temperature=0.1,
+        top_p=0.95,
+        top_k=64,
+        max_output_tokens=8192,
+        response_mime_type="application/json",
     )
     
     # Construct Promopt
@@ -144,7 +140,11 @@ def gemini_extract(text, api_key, theme_context_str):
     """
 
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents=prompt,
+            config=generation_config,
+        )
         return json.loads(response.text)
     except Exception as e:
         return {"Error": str(e), "Titre": "Erreur IA", "Theme_Code_Suggested": ""}
@@ -153,6 +153,7 @@ def push_to_airtable(data, theme_id):
     url = f"https://api.airtable.com/v0/{BASE_ID}/Articles"
     fields = {
         "Titre": data.get("Titre"),
+        "Statut_Publication": "Brouillon",
         "Theme": [theme_id] if theme_id else []
     }
     
@@ -256,7 +257,7 @@ if "ia_results" in st.session_state and st.session_state["ia_results"]:
     edited_df = st.data_editor(
         df[display_cols],
         column_config=column_config,
-        use_container_width=True,
+        width="stretch",
         num_rows="dynamic", 
         key="editor_ia"
     )
