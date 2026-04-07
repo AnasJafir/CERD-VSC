@@ -1,0 +1,35 @@
+00:00:00,560 --> 00:00:05,340 [Speaker 0]
+C'est Anas. Salam alaykoum. Encore un autre sujet. Je voudrais te rassurer 
+
+00:00:06,520 --> 00:00:20,080 [Speaker 0]
+parce que quand on commence une méthode ou une nouvelle dont on voit pas le début et la fin, on s'inquiète un petit peu, on est dérangé. Alors d'abord, je vais t'assurer que avec les quatre dossiers qui sont ouverts aujourd'hui 
+
+00:00:21,700 --> 00:00:32,600 [Speaker 0]
+et, euh, la façon dont on va les traiter, on a commencé à les traiter, euh, vont suffisamment nous donner une idée comment on va gérer notre conteneur. 
+
+00:00:34,200 --> 00:01:16,640 [Speaker 0]
+Alors à ce point, tu vas être d'accord ou pas d'accord avec moi, je voudrais bien connaître ton avis. Ça, il faut pénétrer les dossiers. Avec cette précision que au lieu de figer pas les deux dossiers, pourquoi tu as compris ? Donc chaque dossier peut y avoir des pièces jointes, peut y avoir un document, ChatGPT ou bien Google ou la, ou la DIALI. D'accord ? Ce sont des éléments. Donc, euh, [inaudible] C'est le même principe de toute nomenclature, de toute articulation de base de données. Comme une base de données. On ouvre le dossier, par exemple, de configuration de l'accueil, euh, pour, 
+
+00:01:18,080 --> 00:01:25,170 [Speaker 0]
+pour faire des recherches, pour rentrer dans le système. Euh, il va y avoir-- je l'ai appelé dossier numéro un, 
+
+00:01:26,240 --> 00:01:34,020 [Speaker 0]
+mais à l'intérieur, on peut laisser la notion de fiche. Fiche un, fiche deux, fiche trois. Fiche un, fiche deux, fiche... Ce sont des documents distincts 
+
+00:01:35,200 --> 00:01:35,720 [Speaker 0]
+qui traitent 
+
+00:01:37,320 --> 00:01:49,420 [Speaker 0]
+d'un sujet précis limité et qui rentrent dans le cadre du dossier principal. C'est important qu'on soit d'accord pour voir si on va dans la même direction ou pas. D'accord ? Donc 
+
+00:01:50,740 --> 00:02:13,640 [Speaker 0]
+à partir de maintenant, si tu es d'accord, on va avoir des dossiers un, deux, trois, quatre. Pour le moment, il y en a quatre, je pense. À l'intérieur desquels il peut y avoir des fi-, des, des, des fiches. Fiche numéro un, fiche deux. Par exemple, quand on entre dans les sources, ça va rassembler un document Excel, un document Word, etc etc ou des discussions entre toi et moi. Mais nous pouvons, euh, chacun 
+
+00:02:15,180 --> 00:02:17,500 [Speaker 0]
+d'entre eux, 
+
+00:02:18,840 --> 00:02:18,920 [Speaker 0]
+chaque 
+
+00:02:20,580 --> 00:02:26,360 [Speaker 0]
+sujet précis va avoir ses fiches. Mais à l'intérieur d'un titre principal qui s'appelle Code source. Bon

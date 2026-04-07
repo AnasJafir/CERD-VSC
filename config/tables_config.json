@@ -13,13 +13,8 @@
     "fields": {
       "Code": "fldS89LBUZkQg2I51",
       "Nom": "fldQcJkkyb2x8YxBr",
-      "Type": "fldHvHsUybrxzvxZC",
-      "Est_Aussi_Theme": "fldJ64BRemxH1ZXdh",
-      "Code_Parent_Domaine": "fldWtKju3Uvrk6QmN",
-      "Code_Parent_Secteur": "fldNdMrvU8bfTXKVd",
       "Parent_Domaine": "fldy0oo6w6lraXNcB",
       "Parent_Secteur": "fldiYKrWv0F0bhQm6",
-      "From field: Parent_Secteur": "flduw4LrFv1088CpJ",
       "Themes": "fldBHlWCphyDEuOtx"
     }
   },
@@ -28,29 +23,45 @@
     "fields": {
       "Code_Theme": "fld96jZHrjWFzcMC1",
       "Nom_Theme": "fld2MtYqJa9psHhT2",
-      "Type_Parent": "fldXCRTdu27vMO9VZ",
-      "Code_Parent_Ref": "fldUXetPoFtRVqyiS",
       "Parent_SSS": "fld4I9qlS36bbZyN8",
-      "Articles": "fldVaQxPqiRxwHTjZ",
-      "Parent_Domaine": "fldF5d9nY6QUwwL0n"
+      "Parent_Domaine": "fldF5d9nY6QUwwL0n",
+      "Articles": "fldVaQxPqiRxwHTjZ"
     }
   },
   "Articles": {
     "id": "tbl9OgKc9VKrYdIQc",
     "fields": {
       "Titre": "fldoxGqt3V11SvDEn",
+      "Code_Article": "fld7luBDo3q5ajvyF",
       "Série": "fldaDUr2OZDqIY5s6",
+      "Theme": "fld4tCOrGJD5sCk7q",
       "Code_Theme_Ref": "fldGDiFLdPnPligfX",
       "Index": "fldgfntgM7l2ZhCEw",
       "Extrait": "fldxheCuIynX5wemF",
       "Mots_Cles": "fldNrtOGFcQs4cLxM",
       "Source": "fld2snimuFuPsRyaO",
+      "Contenu_Nettoye": "fldENiKji6PT5dKHr",
       "Date_Publication": "fldDlnW4hhChfFean",
-      "Contenu_Texte": "fldENiKji6PT5dKHr",
       "Fichier": "fldYwgfrPqSFOf7j6",
       "Contenu_Visuel": "fldWQgAmXKGZSoFZU",
-      "ID_Article": "fld7luBDo3q5ajvyF",
-      "Theme": "fld4tCOrGJD5sCk7q"
+      "Chiffre_Star": "fld6JRpUiVVGhErmq",
+      "Legende_Chiffre": "fldacft5OPQRCc7op",
+      "Source_Ref": "fldIg3XQw977PITrC"
+    }
+  },
+  "Chiffres_Stars": {
+    "id": "tbl4w1ZCKotLiuRB9",
+    "fields": {
+      "Valeur": "fldm3TzZimUMuKxuA",
+      "Unite": "fldqxAAjoa1fTauFe",
+      "Legende": "fldemYHUszFL7CqXb",
+      "Ordre_Affichage": "fldilwHI73DbhTgTC",
+      "Niveau_Importance": "fldSJxkvIiiOgfXzV",
+      "Style_Token": "fldMLMAkif3HQacuY",
+      "Color_Token": "fldbCsOtYLXwM2t0G",
+      "Weight_Token": "fldUwfWeHsrAGNWhO",
+      "Size_Token": "fldrjr6ljSnJ9Havx",
+      "Article_Ref": "fldu9rEHwbWGFuATa"
     }
   }
 }

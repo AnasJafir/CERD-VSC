@@ -1,0 +1,43 @@
+Sheets: ['Feuil1', 'Feuil2', 'Feuil3']
+Rows: 183, Cols: 3
+--- Headers ---
+  Col 1: None
+  Col 2: None
+  Col 3: None
+--- First 25 rows ---
+ |  | 
+ | Tableau des Codes Source | 
+ |                                                         1,000 Comptes | 
+CODE | TITRE & CATEGORIE | 
+01 ├á 99 | DIVERS                                                              100 | 
+ | CAT 1323 60 | 
+ |  | 
+100-199 | Administration, Institutions, Associations. Maroc         100 | 
+100 | MAP Maghreb Arabe Presse | 
+101 | Minist├¿re de l'Agriculture, du D├®velop. Rural et des P├¬ches Maritimes | 
+102 | Bourse de Casablanca | 
+103 | Revue Minist├¿re de l'Equipement. | 
+104 | Minist├¿re de l'Equipement du Transport | 
+105 | Minist├¿re des statistiques, du Commissariat du Plan | 
+106 | Le Maroc en chiffres Commissariat au Plan,  | 
+107 | Minist├¿re de lÔÇÖIndustrie du commerce  | 
+108 | Minist├¿re des Finances, Office de change | 
+109 | Agence Nationale de R├®glementation des T├®l├®com. (ANRT) | 
+110 | Office National des A├®roports | 
+111 | Bank Al-Maghrib (BAM) | 
+112 | Wafabourse et Wafa Assurance | 
+113 | FMSAR (Assurance) | 
+114 | CNSS | 
+115 | Association marocaine de marbriers (AMM). | 
+116 | Minist├¿re de la Sant├® | 
+--- Last 10 rows ---
+666 | L'Eco Maghr├®bin | 
+667 | Financial Times | 
+668 | USA today "Moyen Orient" | 
+669 | Economap | 
+670 | Quid | 
+671 | Wikinews. | 
+672 | FORBES MAGAZINE  | 
+673 | Le Temps | 
+674 | Les Afriques | 
+999 | Source inconnue | 

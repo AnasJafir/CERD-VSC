@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 import datetime
+import time
 
 # Extractors
 import pdfplumber
@@ -31,6 +32,15 @@ st.set_page_config(
 ROOT_DIR = Path(__file__).resolve().parent
 ENV_PATH = ROOT_DIR / ".env"
 load_dotenv(ENV_PATH)
+
+PRIMARY_GEMINI_MODEL = (os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
+BACKUP_GEMINI_MODEL = (os.getenv("GEMINI_BACKUP_MODEL") or "gemini-2.5-flash-lite").strip()
+
+
+def is_retryable_gemini_error(error_text):
+    normalized = str(error_text or "").upper()
+    retryable_markers = ["503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "DEADLINE_EXCEEDED", "INTERNAL"]
+    return any(marker in normalized for marker in retryable_markers)
 
 # Airtable Config
 AIRTABLE_TOKEN = os.getenv("AIRTABLE_ACCESS_TOKEN")
@@ -103,7 +113,7 @@ def extract_text_from_file(uploaded_file):
     return clean_text(full_text)
 
 def gemini_extract(text, api_key, theme_context_str):
-    """Uses Gemini 1.5 Flash to structured JSON extraction."""
+    """Uses Gemini for structured JSON extraction with transient-error retry."""
     if not api_key:
         return {"Error": "Clé API manquante", "Titre": "Erreur", "Theme_Code_Suggested": ""}
     
@@ -139,21 +149,41 @@ def gemini_extract(text, api_key, theme_context_str):
     {text[:30000]}
     """
 
-    try:
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt,
-            config=generation_config,
-        )
-        return json.loads(response.text)
-    except Exception as e:
-        return {"Error": str(e), "Titre": "Erreur IA", "Theme_Code_Suggested": ""}
+    model_candidates = []
+    for model_name in [PRIMARY_GEMINI_MODEL, BACKUP_GEMINI_MODEL]:
+        clean_name = str(model_name or "").strip()
+        if clean_name and clean_name not in model_candidates:
+            model_candidates.append(clean_name)
+
+    last_error = ""
+    for model_name in model_candidates:
+        for attempt in range(3):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                    config=generation_config,
+                )
+                return json.loads(response.text)
+            except Exception as e:
+                error_text = str(e)
+                last_error = f"{model_name}: {error_text}"
+
+                if is_retryable_gemini_error(error_text) and attempt < 2:
+                    time.sleep(2 * (attempt + 1))
+                    continue
+
+                if is_retryable_gemini_error(error_text):
+                    break
+
+                return {"Error": last_error, "Titre": "Erreur IA", "Theme_Code_Suggested": ""}
+
+    return {"Error": last_error or "Gemini indisponible", "Titre": "Erreur IA", "Theme_Code_Suggested": ""}
 
 def push_to_airtable(data, theme_id):
     url = f"https://api.airtable.com/v0/{BASE_ID}/Articles"
     fields = {
         "Titre": data.get("Titre"),
-        "Statut_Publication": "Brouillon",
         "Theme": [theme_id] if theme_id else []
     }
     
@@ -171,7 +201,11 @@ def push_to_airtable(data, theme_id):
 
 st.sidebar.header("Configuration IA")
 gemini_key = st.sidebar.text_input("Clé API Gemini", type="password", help="Générer sur aistudio.google.com")
-st.sidebar.info("Modèle utilisé : **Gemini 1.5 Flash** (Rapide & Gratuit)\n\nClé requise pour l'analyse.")
+st.sidebar.info(
+    f"Modèle principal : **{PRIMARY_GEMINI_MODEL}**\n"
+    f"Modèle secours : **{BACKUP_GEMINI_MODEL}**\n\n"
+    "Clé requise pour l'analyse."
+)
 
 st.title("🤖 CERD — Ingestion Assistée par IA")
 st.markdown("Analyse sémantique complète : Titre, Résumé, Mots-clés, Dates et **Classification Automatique**.")

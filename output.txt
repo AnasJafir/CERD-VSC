@@ -1,0 +1,16 @@
+🚀 Test de connexion à Gemini avec Clean Split JSON...
+Envoi du texte pour analyse...
+
+🟢 RÉSULTAT DE L'EXTRACTION JSON :
+{
+  "Titre": "Le projet de liaison fixe Maroc-Espagne refait surface avec un coût réévalué",
+  "Extrait": "Le projet de relier le Maroc et l'Espagne est resté dans les tiroirs plus de quatre décennies, il refait surface en février 2023. Le coût devrait atteindre les **15** milliards d’€, avec une estimation finale à plus de **25** milliards d’€ fin **2025**.",
+  "Mots_Cles": "Liaison fixe, Maroc, Espagne, Détroit de Gibraltar, Coût, Études, Tunnel",
+  "Source": "Non spécifiée (basé sur des informations de presse)",
+  "Date_Publication": "2023-02-XX",
+  "Code_Theme_Ref": "90.6",
+  "Série": "c1",
+  "Chiffre_Star": "**38,7** km",
+  "Legende_Chiffre": "Longueur totale estimée de l'ouvrage hispano-marocain.",
+  "Contenu_Nettoye": "Un projet né en **1979** (mais l’idée remonte à plus d’un siècle) à l'occasion d'une rencontre entre\nles rois Juan Carlos et Hassan II. Le projet de relier le Maroc et l'Espagne est resté dans les tiroirs\nplus de quatre décennies, il refait surface en février **2023**.\n\n- En **2008**, le projet de liaison fixe pour relier Malabata près de Tanger à la ville\nespagnole Tarifa était évalué en **2008** à **5,3** milliards d’€, soit **60** milliards DH\n- Les travaux d’étude ont été confiés à la Société marocaine d’études du détroit de\nGibraltar (Sned) et la Société espagnole d’études (Seceg),\n- L’ouvrage sera long de **28** mètres sous-marine. C'est plus court, mais beaucoup\nplus profond que le tunnel sous la Manche, qui parcourt **38** kilomètres en moyenne à\n**100** mètres au-dessous du niveau de la mer. L'ouvrage hispano-marocain dans son\nentier mesurerait **38,7** km de long et sa profondeur atteindrait les **475** m.\n- **17** ans plus tard, \" Le mythe devient tangible\", titrait le quotidien espagnol El Pais, le\ncoût devrait atteindre les **15** milliards d’€.\n- Fin **2025**, plus de **25** milliards d’€ seront nécessaires.\n- Casablanca - Madrid : **5** heure **30**, selon le site marocain Bladi.net"
+}

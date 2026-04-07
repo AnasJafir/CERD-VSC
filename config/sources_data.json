@@ -1,0 +1,1091 @@
+{
+  "sources": [
+    {
+      "code": "100",
+      "nom": "MAP Maghreb Arabe Presse",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "101",
+      "nom": "Ministère de l'Agriculture, du Dévelop. Rural et des Pêches Maritimes",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "102",
+      "nom": "Bourse de Casablanca",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "103",
+      "nom": "Revue Ministère de l'Equipement.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "104",
+      "nom": "Ministère de l'Equipement du Transport",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "105",
+      "nom": "Ministère des statistiques, du Commissariat du Plan",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "106",
+      "nom": "Le Maroc en chiffres Commissariat au Plan,",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "107",
+      "nom": "Ministère de l’Industrie du commerce",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "108",
+      "nom": "Ministère des Finances, Office de change",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "109",
+      "nom": "Agence Nationale de Réglementation des Télécom. (ANRT)",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "ANRT",
+        "Agence Nationale de Réglementation des Télécom."
+      ]
+    },
+    {
+      "code": "110",
+      "nom": "Office National des Aéroports",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "111",
+      "nom": "Bank Al-Maghrib (BAM)",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "BAM",
+        "Bank Al-Maghrib"
+      ]
+    },
+    {
+      "code": "112",
+      "nom": "Wafabourse et Wafa Assurance",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "113",
+      "nom": "FMSAR (Assurance)",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "Assurance",
+        "FMSAR"
+      ]
+    },
+    {
+      "code": "114",
+      "nom": "CNSS",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "115",
+      "nom": "Association marocaine de marbriers (AMM).",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "AMM",
+        "Association marocaine de marbriers ."
+      ]
+    },
+    {
+      "code": "116",
+      "nom": "Ministère de la Santé",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "117",
+      "nom": "Fédération Nationale des Coopératives au Maroc",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "118",
+      "nom": "ONICL",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "119",
+      "nom": "OCP",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "120",
+      "nom": "la Comader",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "121",
+      "nom": "Haut commissariat aux eaux et Forêts et à la lutte contre la désert.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "122",
+      "nom": "ONP - Départements des pêches maritimes",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "123",
+      "nom": "Centre National de Documentation du Maroc",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "124",
+      "nom": "SURAC",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "125",
+      "nom": "MINISTERE DES AFFAIRES ECO ET GENERALES",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "126",
+      "nom": "Amith",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "127",
+      "nom": "Fédération marocaine des industries du cuir (Fedic).",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "Fedic",
+        "Fédération marocaine des industries du cuir ."
+      ]
+    },
+    {
+      "code": "128",
+      "nom": "Centre Technique de Plasturgie et de Caoutchouc (CTPC)",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "CTPC",
+        "Centre Technique de Plasturgie et de Caoutchouc"
+      ]
+    },
+    {
+      "code": "129",
+      "nom": "OJD Maroc",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "130",
+      "nom": "l'Office National de l'Electricité ONE",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "131",
+      "nom": "Ministère de l'Energie et des Mines",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "132",
+      "nom": "Office National de l'Eau Potable",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "133",
+      "nom": "ONEP",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "134",
+      "nom": "Bulletin Officiel",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "135",
+      "nom": "Agence N de la Conserv.Foncière du Cadastre et de la Cartog.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "136",
+      "nom": "Office National des Chemins de Fer",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "137",
+      "nom": "ADM",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "138",
+      "nom": "ODEP",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "139",
+      "nom": "Office d'Exploitation des ports",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "140",
+      "nom": "Barid Al-Maghrib",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "141",
+      "nom": "Fédération nationale des associations de micro-crédit (FANAM)",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "FANAM",
+        "Fédération nationale des associations de micro-crédit"
+      ]
+    },
+    {
+      "code": "142",
+      "nom": "Ministre du secteur public et de la privatisation",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "143",
+      "nom": "Ministère de l'Educ. Nle de l'Enseignement Sup. de la Formation des Cadres",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "144",
+      "nom": "Institut national de la statistique et des études économiques (Insee).",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": [
+        "Insee",
+        "Institut national de la statistique et des études économiques ."
+      ]
+    },
+    {
+      "code": "145",
+      "nom": "Ministère de la Justice",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "146",
+      "nom": "Administration pénitentaire 1521 83",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "147",
+      "nom": "CMPP",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "148",
+      "nom": "Centre cinématographique marocain",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "149",
+      "nom": "Ministère du développement Social, de la solidarité, de l'Emploi et de la Formation Professionnelle.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "150",
+      "nom": "Direction des Impôts",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "151",
+      "nom": "ANPME",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "152",
+      "nom": "Ministère du Tourisme, de l'Artisanat et de l'Economie Sociale",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "153",
+      "nom": "APEFEL",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "154",
+      "nom": "Direction de la Comptabilité Nationale",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "155",
+      "nom": "S/S. d'Etat auprès du 1° ministre chargé des affaires de la cté marocaine à l'étr.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "156",
+      "nom": "CFCIM",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "157",
+      "nom": "IMS, un organisme suisse spécialisé dans l’information médicale.",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "158",
+      "nom": "Etude du département de la consommation et de l'industrie",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "159",
+      "nom": "Le secteur en chiffres",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "160",
+      "nom": "DGAFP / Bilan social de la fonction publique 1307 75",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "161",
+      "nom": "Conférence générale des tribunaux de commerce",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "162",
+      "nom": "Anima",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "163",
+      "nom": "SNPP 1971 40",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "164",
+      "nom": "AMENDIS 41 WORD",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "165",
+      "nom": "Association professionnelle de l'aviculture",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "166",
+      "nom": "Association Marocaine des Industries Pharmaceutiques",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "167",
+      "nom": "UNPL Union Nationale des Professions Libérales",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "168",
+      "nom": "Approvisionnement des provinces sahariennes",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "169",
+      "nom": "Lydec",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "170",
+      "nom": "Redal",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "171",
+      "nom": "Aivam",
+      "categorie": "Administration, Institutions, Associations (Maroc)",
+      "aliases": []
+    },
+    {
+      "code": "200",
+      "nom": "AFP Agence France Presse 1543 83",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "201",
+      "nom": "Banque mondiale et FMI",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "202",
+      "nom": "Chambre des Notaires de Paris",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "203",
+      "nom": "Dares-France",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "204",
+      "nom": "l’Economy Policy Institute (EPI) USA",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "EPI",
+        "l’Economy Policy Institute  USA"
+      ]
+    },
+    {
+      "code": "205",
+      "nom": "l'Economist Intelligence Unit (EIU)",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "EIU",
+        "l'Economist Intelligence Unit"
+      ]
+    },
+    {
+      "code": "206",
+      "nom": "Eurostat",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "207",
+      "nom": "Organisation arabe du travail",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "208",
+      "nom": "Agence Nationale de la Conservation Foncière du Cadastre et de la Cartographie",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "209",
+      "nom": "CMA CGM, Lloyd’s Shipping Economist, Lloyd List Daily",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "210",
+      "nom": "Inst. international de rech. pour la paix à Stockholm (SIPRI",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "211",
+      "nom": "Union internationale des télécommunications",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "212",
+      "nom": "UNEDIC - APEC   Le Monde",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "213",
+      "nom": "une étude publiée par ComScore Networks1995",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "214",
+      "nom": "CNUCED",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "215",
+      "nom": "Etude de l'Union internationale des télécommunications (UIT) 2008.",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "UIT",
+        "Etude de l'Union internationale des télécommunications  2008."
+      ]
+    },
+    {
+      "code": "216",
+      "nom": "The Harbour report North America",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "217",
+      "nom": "Baromètre C.I.EAU / TNS SOFRES 2008 - 13ème édition",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "218",
+      "nom": "Ministère tunisien du Tourisme des Loisirs et de l’Artisanat",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "219",
+      "nom": "Direction de la Statistique en Tunisie",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "220",
+      "nom": "OMT, ONTT, ONMTT",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "221",
+      "nom": "Livre Blanc PME",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "222",
+      "nom": "FAQ « naccorail »",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "223",
+      "nom": "Union internationale des télécommunications",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "224",
+      "nom": "une étude publiée par ComScore Networks",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "225",
+      "nom": "La gestion des déchets -PHILIPPE  PICHAT - Flammarion",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "226",
+      "nom": "IFEN",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "227",
+      "nom": "APIA",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "228",
+      "nom": "une étude du cabinet de consultants Booz Allen et Hamilton.",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "229",
+      "nom": "OCDE",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "230",
+      "nom": "OMC",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "231",
+      "nom": "Rapport du PNUD",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "232",
+      "nom": "Bloomberg",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "233",
+      "nom": "Confédér. de l’ind. des papiers, cartons et celluloses (Copacel), (France)",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "Copacel",
+        "France",
+        "Confédér. de l’ind. des papiers, cartons et celluloses ,"
+      ]
+    },
+    {
+      "code": "234",
+      "nom": "La Documentation française",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "235",
+      "nom": "l'APIA Tunisie",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "236",
+      "nom": "Computing Cost",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "237",
+      "nom": "NUS",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "238",
+      "nom": "YAHOO NEWS",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "239",
+      "nom": "L'état du monde",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "240",
+      "nom": "Wikipédia",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "241",
+      "nom": "Forbes",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "242",
+      "nom": "SNM",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "243",
+      "nom": "Bip-Nus Consulting",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "244",
+      "nom": "The World's water",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "245",
+      "nom": "Fédération des associations générales étudiantes (Fage).",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "Fage",
+        "Fédération des associations générales étudiantes ."
+      ]
+    },
+    {
+      "code": "246",
+      "nom": "DEP-MEN",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "247",
+      "nom": "SETRA",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": []
+    },
+    {
+      "code": "248",
+      "nom": "Société française d'énergie nucléaire (SFEN),",
+      "categorie": "Administration, Institutions, Associations (Étranger)",
+      "aliases": [
+        "SFEN",
+        "Société française d'énergie nucléaire ,"
+      ]
+    },
+    {
+      "code": "300",
+      "nom": "L'Economiste",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "301",
+      "nom": "La vie économique (LVE)",
+      "categorie": "Presse Maroc",
+      "aliases": [
+        "LVE",
+        "La vie économique"
+      ]
+    },
+    {
+      "code": "302",
+      "nom": "Le Matin du Sahara (LMS)",
+      "categorie": "Presse Maroc",
+      "aliases": [
+        "LMS",
+        "Le Matin du Sahara"
+      ]
+    },
+    {
+      "code": "303",
+      "nom": "L'Opinion",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "304",
+      "nom": "Construire",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "305",
+      "nom": "Conjoncture",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "306",
+      "nom": "Aujourd'hui le Maroc (ALM)",
+      "categorie": "Presse Maroc",
+      "aliases": [
+        "ALM",
+        "Aujourd'hui le Maroc"
+      ]
+    },
+    {
+      "code": "307",
+      "nom": "Challenge Hebdo",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "308",
+      "nom": "Telquel",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "309",
+      "nom": "Maroc Hebdo",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "310",
+      "nom": "média.ma",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "311",
+      "nom": "La Gazette du Maroc",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "312",
+      "nom": "Al Bayane",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "313",
+      "nom": "Police magazine",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "314",
+      "nom": "Le Reporter",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "315",
+      "nom": "Al Massaâ",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "317",
+      "nom": "Eco & Entreprises",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "318",
+      "nom": "Revue Conjoncture 1418 75.",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "319",
+      "nom": "Le soir 2524 99",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "320",
+      "nom": "Revue Entreprise & Gestion 1205 45",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "321",
+      "nom": "Le Matin",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "399",
+      "nom": "Synthèse eG",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "322",
+      "nom": "La lettre de SAPRESS",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "323",
+      "nom": "Actuel",
+      "categorie": "Presse Maroc",
+      "aliases": []
+    },
+    {
+      "code": "324",
+      "nom": "Les Retraites – crises , enjeux et perspectives ( AREF Sadek)",
+      "categorie": "Presse Maroc",
+      "aliases": [
+        "AREF Sadek",
+        "Les Retraites – crises , enjeux et perspectives"
+      ]
+    },
+    {
+      "code": "650",
+      "nom": "Le Monde",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "651",
+      "nom": "Lexpress.fr",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "652",
+      "nom": "Les Echos",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "653",
+      "nom": "La Tribune",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "654",
+      "nom": "Science & Vie Economie",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "655",
+      "nom": "Management",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "656",
+      "nom": "L'Entreprise",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "657",
+      "nom": "Marianne",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "658",
+      "nom": "Problèmes économiques",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "659",
+      "nom": "journaldunet.com JDN",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "660",
+      "nom": "LExpansion.com    et   L’Expansion",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "661",
+      "nom": "L'Internaute Magazine",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "662",
+      "nom": "Asharq Al-Awsat",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "663",
+      "nom": "Economie Matin",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "664",
+      "nom": "Alarabonline",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "665",
+      "nom": "Libération",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "666",
+      "nom": "L'Eco Maghrébin",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "667",
+      "nom": "Financial Times",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "668",
+      "nom": "USA today \"Moyen Orient\"",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "669",
+      "nom": "Economap",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "670",
+      "nom": "Quid",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "671",
+      "nom": "Wikinews.",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "672",
+      "nom": "FORBES MAGAZINE",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "673",
+      "nom": "Le Temps",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "674",
+      "nom": "Les Afriques",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    },
+    {
+      "code": "999",
+      "nom": "Source inconnue",
+      "categorie": "Presse Étranger",
+      "aliases": []
+    }
+  ]
+}

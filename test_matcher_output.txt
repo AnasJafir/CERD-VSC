@@ -1,0 +1,8 @@
+La vie éco -> 999 (Source inconnue)
+LVE -> 301 (La vie économique (LVE))
+MAP -> 999 (Source inconnue)
+Bank Al Maghrib -> 111 (Bank Al-Maghrib (BAM))
+BAM -> 111 (Bank Al-Maghrib (BAM))
+Le Monde -> 650 (Le Monde)
+La Vie Economique -> 301 (La vie économique (LVE))
+source vraiment bizarre -> 999 (Source inconnue)

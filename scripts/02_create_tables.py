@@ -2,7 +2,7 @@
 """
 Script 02 — Création de l'infrastructure des tables Airtable
 =============================================================
-Crée (ou vérifie) les 4 tables du projet CERD dans la base Airtable cible,
+Crée (ou vérifie) les 5 tables du projet CERD dans la base Airtable cible,
 puis sauvegarde les IDs techniques dans config/tables_config.json.
 
 Idempotence :
@@ -15,6 +15,7 @@ Ordre de création imposé par les dépendances de liens :
   2. Secteurs_SousSecteurs  (lien → Domaines, auto-lien interne)
   3. Themes                 (lien → Secteurs_SousSecteurs)
   4. Articles               (lien → Themes + champ formule ID_Article)
+    5. Chiffres_Stars         (lien → Articles)
 """
 
 import os
@@ -151,16 +152,28 @@ TABLE_SCHEMAS: dict[str, list[dict]] = {
         },
         # Copie textuelle du code thème pour la formule ID_Article
         {"name": "Code_Theme_Ref", "type": "singleLineText"},
+        {
+            "name": "Statut_Publication",
+            "type": "singleSelect",
+            "options": {"choices": [
+                {"name": "Brouillon", "color": "yellowLight2"},
+                {"name": "Valide", "color": "greenLight2"},
+                {"name": "Publie", "color": "blueLight2"},
+            ]},
+        },
         {"name": "Index", "type": "number", "options": {"precision": 0}},
         {"name": "Extrait",          "type": "multilineText"},
         {"name": "Mots_Cles",        "type": "multilineText"},
         {"name": "Source",           "type": "singleLineText"},
+        {"name": "Chiffre_Star",     "type": "multilineText"},
+        {"name": "Legende_Chiffre",  "type": "multilineText"},
         {
             "name": "Date_Publication",
             "type": "date",
             "options": {"dateFormat": {"name": "iso"}},
         },
         {"name": "Contenu_Texte",    "type": "multilineText"},
+        {"name": "Contenu_Nettoye",  "type": "multilineText"},
         {"name": "Fichier",          "type": "multipleAttachments"},
         {"name": "Contenu_Visuel",   "type": "multipleAttachments"},
         # ID_Article : champ texte calculé par les scripts d'ingestion
@@ -169,6 +182,35 @@ TABLE_SCHEMAS: dict[str, list[dict]] = {
         # Pour un calcul auto dans l'interface, ajouter manuellement une formule :
         #   CONCATENATE({Série}, "-", {Code_Theme_Ref}, "-", {Index})
         {"name": "ID_Article",        "type": "singleLineText"},
+    ],
+
+    # ── Table 5 : Chiffres Stars ─────────────────────────────────────────
+    "Chiffres_Stars": [
+        {"name": "Valeur",            "type": "singleLineText"},   # primaire
+        {"name": "Unite",             "type": "singleLineText"},
+        {"name": "Legende",           "type": "multilineText"},
+        {"name": "Ordre_Affichage",   "type": "number", "options": {"precision": 0}},
+        {
+            "name": "Niveau_Importance",
+            "type": "singleSelect",
+            "options": {"choices": [
+                {"name": "1", "color": "redLight2"},
+                {"name": "2", "color": "orangeLight2"},
+                {"name": "3", "color": "yellowLight2"},
+            ]},
+        },
+        {
+            "name": "Style_Token",
+            "type": "singleSelect",
+            "options": {"choices": [
+                {"name": "STAR_PRIMARY", "color": "redLight2"},
+                {"name": "STAR_SECONDARY", "color": "orangeLight2"},
+                {"name": "STAR_CONTEXT", "color": "blueLight2"},
+            ]},
+        },
+        {"name": "Color_Token",       "type": "singleLineText"},
+        {"name": "Weight_Token",      "type": "singleLineText"},
+        {"name": "Size_Token",        "type": "singleLineText"},
     ],
 }
 
@@ -219,6 +261,26 @@ LINKED_FIELDS: list[tuple[str, str, callable]] = [
             "name": "Theme",
             "type": "multipleRecordLinks",
             "options": {"linkedTableId": ids["Themes"]},
+        },
+    ),
+    # Articles ← Sources (optionnel : créé seulement si la table Sources existe)
+    (
+        "Articles",
+        "Source_Ref",
+        lambda ids: {
+            "name": "Source_Ref",
+            "type": "multipleRecordLinks",
+            "options": {"linkedTableId": ids["Sources"]},
+        },
+    ),
+    # Chiffres_Stars ← Articles
+    (
+        "Chiffres_Stars",
+        "Article_Ref",
+        lambda ids: {
+            "name": "Article_Ref",
+            "type": "multipleRecordLinks",
+            "options": {"linkedTableId": ids["Articles"]},
         },
     ),
     # Themes ← Domaines
@@ -279,7 +341,7 @@ def main():
 
     # ── Étape 2 : Création ou récupération des tables ─────────────────────
     print("\n[2] Création / vérification des tables …")
-    order = ["Domaines", "Secteurs_SousSecteurs", "Themes", "Articles"]
+    order = ["Domaines", "Secteurs_SousSecteurs", "Themes", "Articles", "Chiffres_Stars"]
 
     for tname in order:
         if tname in existing:
@@ -297,6 +359,8 @@ def main():
     print("\n[3] Rafraîchissement de l'inventaire …")
     existing = get_all_tables()
     ids = table_id_map(tables_config)
+    if "Sources" in existing:
+        ids["Sources"] = existing["Sources"]["id"]
 
     # ── Étape 4 : Ajout des champs de liaison (idempotent) ─────────────────
     print("\n[4] Ajout des champs de liaison (Linked Records) …")
@@ -310,7 +374,11 @@ def main():
             print(f"    [SKIP] '{tname}'.'{fname}' déjà présent")
             continue
 
-        fdef = field_builder(ids)
+        try:
+            fdef = field_builder(ids)
+        except KeyError as e:
+            print(f"    [SKIP] '{tname}'.'{fname}' non créé (table liée absente : {e})")
+            continue
         fdata = add_field(tid, fdef)
         tables_config[tname]['fields'][fname] = fdata['id']
 

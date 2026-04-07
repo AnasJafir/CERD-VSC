@@ -1,0 +1,183 @@
+Total source entries with numeric codes: 172
+
+ | Tableau des Codes Source
+ | 1,000 Comptes
+CODE | TITRE & CATEGORIE
+01 ├á 99 | DIVERS                                                              100
+ | CAT 1323 60
+100-199 | Administration, Institutions, Associations. Maroc         100
+100 | MAP Maghreb Arabe Presse
+101 | Minist├¿re de l'Agriculture, du D├®velop. Rural et des P├¬ches Maritimes
+102 | Bourse de Casablanca
+103 | Revue Minist├¿re de l'Equipement.
+104 | Minist├¿re de l'Equipement du Transport
+105 | Minist├¿re des statistiques, du Commissariat du Plan
+106 | Le Maroc en chiffres Commissariat au Plan,
+107 | Minist├¿re de lÔÇÖIndustrie du commerce
+108 | Minist├¿re des Finances, Office de change
+109 | Agence Nationale de R├®glementation des T├®l├®com. (ANRT)
+110 | Office National des A├®roports
+111 | Bank Al-Maghrib (BAM)
+112 | Wafabourse et Wafa Assurance
+113 | FMSAR (Assurance)
+114 | CNSS
+115 | Association marocaine de marbriers (AMM).
+116 | Minist├¿re de la Sant├®
+117 | F├®d├®ration Nationale des Coop├®ratives au Maroc
+118 | ONICL
+119 | OCP
+120 | la Comader
+121 | Haut commissariat aux eaux et For├¬ts et ├á la lutte contre la d├®sert.
+122 | ONP - D├®partements des p├¬ches maritimes
+123 | Centre National de Documentation du Maroc
+124 | SURAC
+125 | MINISTERE DES AFFAIRES ECO ET GENERALES
+126 | Amith
+127 | F├®d├®ration marocaine des industries du cuir (Fedic).
+128 | Centre Technique de Plasturgie et de Caoutchouc (CTPC)
+129 | OJD Maroc
+130 | l'Office National de l'Electricit├® ONE
+131 | Minist├¿re de l'Energie et des Mines
+132 | Office National de l'Eau Potable
+133 | ONEP
+134 | Bulletin Officiel
+135 | Agence N de la Conserv.Fonci├¿re du Cadastre et de la Cartog.
+136 | Office National des Chemins de Fer
+137 | ADM
+138 | ODEP
+139 | Office d'Exploitation des ports
+140 | Barid Al-Maghrib
+141 | F├®d├®ration nationale des associations de micro-cr├®dit (FANAM)
+142 | Ministre du secteur public et de la privatisation
+143 | Minist├¿re de l'Educ. Nle de l'Enseignement Sup. de la Formation des Cadres
+144 | Institut national de la statistique et des ├®tudes ├®conomiques (Insee).
+145 | Minist├¿re de la Justice
+146 | Administration p├®nitentaire 1521 83
+147 | CMPP
+148 | Centre cin├®matographique marocain
+149 | Minist├¿re du d├®veloppement Social, de la solidarit├®, de l'Emploi et de la Formation Professionnelle.
+150 | Direction des Imp├┤ts
+151 | ANPME
+152 | Minist├¿re du Tourisme, de l'Artisanat et de l'Economie Sociale
+153 | APEFEL
+154 | Direction de la Comptabilit├® Nationale
+155 | S/S. d'Etat aupr├¿s du 1┬░ ministre charg├® des affaires de la ct├® marocaine ├á l'├®tr.
+156 | CFCIM
+157 | IMS, un organisme suisse sp├®cialis├® dans lÔÇÖinformation m├®dicale.
+158 | Etude du d├®partement de la consommation et de l'industrie
+159 | Le secteur en chiffres
+160 | DGAFP / Bilan social de la fonction publique 1307 75
+161 | Conf├®rence g├®n├®rale des tribunaux de commerce
+162 | Anima
+163 | SNPP 1971 40
+164 | AMENDIS 41 WORD
+165 | Association professionnelle de l'aviculture
+166 | Association Marocaine des Industries Pharmaceutiques
+167 | UNPL Union Nationale des Professions Lib├®rales
+168 | Approvisionnement des provinces sahariennes
+169 | Lydec
+170 | Redal
+171 | Aivam
+200-299 | Administration, Institutions, Associations. Etranger       100
+200 | AFP Agence France Presse 1543 83
+201 | Banque mondiale et FMI
+202 | Chambre des Notaires de Paris
+203 | Dares-France
+204 | lÔÇÖEconomy Policy Institute (EPI) USA
+205 | l'Economist Intelligence Unit (EIU)
+206 | Eurostat
+207 | Organisation arabe du travail
+208 | Agence Nationale de la Conservation Fonci├¿re du Cadastre et de la Cartographie
+209 | CMA CGM, LloydÔÇÖs Shipping Economist, Lloyd List Daily
+210 | Inst. international de rech. pour la paix ├á Stockholm (SIPRI
+211 | Union internationale des t├®l├®communications
+212 | UNEDIC - APEC   Le Monde
+213 | une ├®tude publi├®e par ComScore Networks1995
+214 | CNUCED
+215 | Etude de l'Union internationale des t├®l├®communications (UIT) 2008.
+216 | The Harbour report North America
+217 | Barom├¿tre C.I.EAU / TNS SOFRES 2008 - 13├¿me ├®dition
+218 | Minist├¿re tunisien du Tourisme des Loisirs et de lÔÇÖArtisanat
+219 | Direction de la Statistique en Tunisie
+220 | OMT, ONTT, ONMTT
+221 | Livre Blanc PME
+222 | FAQ ┬½ naccorail ┬╗
+223 | Union internationale des t├®l├®communications
+224 | une ├®tude publi├®e par ComScore Networks
+225 | La gestion des d├®chets -PHILIPPE  PICHAT - Flammarion
+226 | IFEN
+227 | APIA
+228 | une ├®tude du cabinet de consultants Booz Allen et Hamilton.
+229 | OCDE
+230 | OMC
+231 | Rapport du PNUD
+232 | Bloomberg
+233 | Conf├®d├®r. de lÔÇÖind. des papiers, cartons et celluloses (Copacel), (France)
+234 | La Documentation fran├ºaise
+235 | l'APIA Tunisie
+236 | Computing Cost
+237 | NUS
+238 | YAHOO NEWS
+239 | L'├®tat du monde
+240 | Wikip├®dia
+241 | Forbes
+242 | SNM
+243 | Bip-Nus Consulting
+244 | The World's water
+245 | F├®d├®ration des associations g├®n├®rales ├®tudiantes (Fage).
+246 | DEP-MEN
+247 | SETRA
+248 | Soci├®t├® fran├ºaise d'├®nergie nucl├®aire (SFEN),
+300-649 | Presse  Maroc                                                     350
+300 | L'Economiste
+301 | La vie ├®conomique (LVE)
+302 | Le Matin du Sahara (LMS)
+303 | L'Opinion
+304 | Construire
+305 | Conjoncture
+306 | Aujourd'hui le Maroc (ALM)
+307 | Challenge Hebdo
+308 | Telquel
+309 | Maroc Hebdo
+310 | m├®dia.ma
+311 | La Gazette du Maroc
+312 | Al Bayane
+313 | Police magazine
+314 | Le Reporter
+315 | Al Massa├ó
+317 | Eco & Entreprises
+318 | Revue Conjoncture 1418 75.
+319 | Le soir 2524 99
+320 | Revue Entreprise & Gestion 1205 45
+321 | Le Matin
+399 | Synth├¿se eG
+322 | La lettre de SAPRESS
+323 | Actuel
+324 | Les Retraites ÔÇô crises , enjeux et perspectives ( AREF Sadek)
+650-999 | Presse   Etranger                                                  350
+650 | Le Monde
+651 | Lexpress.fr
+652 | Les Echos
+653 | La Tribune
+654 | Science & Vie Economie
+655 | Management
+656 | L'Entreprise
+657 | Marianne
+658 | Probl├¿mes ├®conomiques
+659 | journaldunet.com JDN
+660 | LExpansion.com    et   LÔÇÖExpansion
+661 | L'Internaute Magazine
+662 | Asharq Al-Awsat
+663 | Economie Matin
+664 | Alarabonline
+665 | Lib├®ration
+666 | L'Eco Maghr├®bin
+667 | Financial Times
+668 | USA today "Moyen Orient"
+669 | Economap
+670 | Quid
+671 | Wikinews.
+672 | FORBES MAGAZINE
+673 | Le Temps
+674 | Les Afriques
+999 | Source inconnue

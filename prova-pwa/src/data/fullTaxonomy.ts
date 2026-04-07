@@ -1,0 +1,1403 @@
+// Auto-generated full taxonomy from parsed_data.json
+
+export interface TaxonomyTheme {
+  code: string;
+  nom: string;
+  type_parent: string;
+  parent_ref: string;
+}
+
+export interface TaxonomySubSector {
+  code: string;
+  nom: string;
+  parent_secteur: string;
+  parent_domaine: string;
+}
+
+export interface TaxonomySector {
+  code: string;
+  nom: string;
+  parent_domaine: string;
+}
+
+export interface TaxonomyDomain {
+  code: string;
+  nom: string;
+}
+
+export const TAXONOMY = {
+  domaines: [
+  {
+    "code": "1",
+    "nom": "Economie et Social"
+  },
+  {
+    "code": "2",
+    "nom": "Agriculture, Forêt & Pêche ."
+  },
+  {
+    "code": "3",
+    "nom": "Mines. Energie, Industrie de transformation."
+  },
+  {
+    "code": "4",
+    "nom": "Constructions. BTP & Immobilier"
+  },
+  {
+    "code": "5",
+    "nom": "Commerce et Services"
+  },
+  {
+    "code": "6",
+    "nom": "Transport, Poste, Télécoms, Centres d'appel & NTIC"
+  },
+  {
+    "code": "7",
+    "nom": "Tourisme, Hôtellerie et Restauration."
+  },
+  {
+    "code": "8",
+    "nom": "Banque, Assurance et Bourse."
+  },
+  {
+    "code": "9",
+    "nom": "Autres Grands Thèmes de l'Economie."
+  }
+] as TaxonomyDomain[],
+  secteurs: [
+  {
+    "code": "10",
+    "nom": "Education, Enseignements et Formation.",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "11",
+    "nom": "Culturelles, sportives (Activités) et Jeux.",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "12",
+    "nom": "Santé, Protection et Action sociale.",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "13",
+    "nom": "Emploi & Salaires",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "14",
+    "nom": "MRE et Travailleurs migrants",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "15",
+    "nom": "Entreprises et Professions libérales",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "16",
+    "nom": "Administration et Entreprises publiques.",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "17",
+    "nom": "Population et Démographie.",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "18",
+    "nom": "Echanges commerciaux et Balance",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "21",
+    "nom": "Céréales",
+    "parent_domaine": "2"
+  },
+  {
+    "code": "23",
+    "nom": "Fruits et Légumes",
+    "parent_domaine": "2"
+  },
+  {
+    "code": "25",
+    "nom": "Elevage, Cheptel et Abattage.",
+    "parent_domaine": "2"
+  },
+  {
+    "code": "26",
+    "nom": "Aviculture",
+    "parent_domaine": "2"
+  },
+  {
+    "code": "27",
+    "nom": "Secteur agricole - Divers Commun.",
+    "parent_domaine": "2"
+  },
+  {
+    "code": "31",
+    "nom": "Mines.",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "32",
+    "nom": "Energie. Pétrole. Gaz & Electricité.",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "33",
+    "nom": "Chimiques (Industrie), Pharmaceutique.",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "34",
+    "nom": "Indus. Méc. Métal. Elec. et Electronique",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "35",
+    "nom": "Automobile (Industrie) & Mat. de transport.",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "36",
+    "nom": "Textile & Habillement - Cuir",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "37",
+    "nom": "Agroalimentaire",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "38",
+    "nom": "Matériaux de construction",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "39",
+    "nom": "Autres secteurs industriels et Divers",
+    "parent_domaine": "3"
+  },
+  {
+    "code": "42",
+    "nom": "Grands travaux & Réalisations.",
+    "parent_domaine": "4"
+  },
+  {
+    "code": "43",
+    "nom": "Habitat, Immobilier et Foncier",
+    "parent_domaine": "4"
+  },
+  {
+    "code": "61",
+    "nom": "Transport terrestre.",
+    "parent_domaine": "6"
+  },
+  {
+    "code": "62",
+    "nom": "Transport ferroviaire",
+    "parent_domaine": "6"
+  },
+  {
+    "code": "63",
+    "nom": "Transport aérien.",
+    "parent_domaine": "6"
+  },
+  {
+    "code": "64",
+    "nom": "Transport maritime.",
+    "parent_domaine": "6"
+  },
+  {
+    "code": "90",
+    "nom": "Grands Thèmes (I)",
+    "parent_domaine": "9"
+  },
+  {
+    "code": "91",
+    "nom": "Grands Thèmes (II)",
+    "parent_domaine": "9"
+  },
+  {
+    "code": "92",
+    "nom": "Grands Thèmes (III)",
+    "parent_domaine": "9"
+  }
+] as TaxonomySector[],
+  sous_secteurs: [
+  {
+    "code": "10.2",
+    "nom": "Enseignement supérieur",
+    "parent_secteur": "10",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "13.5",
+    "nom": "Prix, Salaires et Coûts de facteurs",
+    "parent_secteur": "13",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "15.1",
+    "nom": "Nombre d'entreprises",
+    "parent_secteur": "15",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "16.7",
+    "nom": "Justice",
+    "parent_secteur": "16",
+    "parent_domaine": "1"
+  },
+  {
+    "code": "17.2",
+    "nom": "Les Ménages",
+    "parent_secteur": "17",
+    "parent_domaine": "1"
+  }
+] as TaxonomySubSector[],
+  themes: [
+  {
+    "code": "10.1",
+    "nom": "Enseignement primaire et secondaire",
+    "type_parent": "Secteur",
+    "parent_ref": "10"
+  },
+  {
+    "code": "10.21",
+    "nom": "Effectifs des étudiants - Enseignement supérieur",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "10.2"
+  },
+  {
+    "code": "10.22",
+    "nom": "Corps enseignant Public - Enseignement supérieur",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "10.2"
+  },
+  {
+    "code": "10.23",
+    "nom": "Corps enseignant Privé & Partenariat - Enseignement supérieur",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "10.2"
+  },
+  {
+    "code": "10.24",
+    "nom": "Ensemble Public & Privé - Enseignement supérieur",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "10.2"
+  },
+  {
+    "code": "10.25",
+    "nom": "Divers Commeun - Enseignement supérieur",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "10.2"
+  },
+  {
+    "code": "10.3",
+    "nom": "Formation professionnelle",
+    "type_parent": "Secteur",
+    "parent_ref": "10"
+  },
+  {
+    "code": "10.4",
+    "nom": "Coût de l'Education",
+    "type_parent": "Secteur",
+    "parent_ref": "10"
+  },
+  {
+    "code": "10.9",
+    "nom": "Divers et Commun - Education et Formation",
+    "type_parent": "Secteur",
+    "parent_ref": "10"
+  },
+  {
+    "code": "11.1",
+    "nom": "Lecture",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "11.2",
+    "nom": "Edition",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "11.3",
+    "nom": "Presse et magazines",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "11.4",
+    "nom": "Sports et Loisirs",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "11.5",
+    "nom": "Jeux",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "11.6",
+    "nom": "Cinéma et télévision",
+    "type_parent": "Secteur",
+    "parent_ref": "11"
+  },
+  {
+    "code": "12.11",
+    "nom": "Budgets et Dépenses de santé",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.12",
+    "nom": "Effectifs personnel médical",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.13",
+    "nom": "Etablissements de santé",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.15",
+    "nom": "Divers Commun Santé",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.21",
+    "nom": "CMR",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.22",
+    "nom": "RCAR",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.23",
+    "nom": "CNSS",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.24",
+    "nom": "CIMR",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.25",
+    "nom": "AMO",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.26",
+    "nom": "Retraites-Prévoyance, Commun et Divers",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.27",
+    "nom": "Etudes et Réformes",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "12.28",
+    "nom": "Âge de la retraite - Démographie",
+    "type_parent": "Secteur",
+    "parent_ref": "12"
+  },
+  {
+    "code": "13.1",
+    "nom": "Activité et Emploi",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.2",
+    "nom": "Emploi dans les entreprises OMTPM",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.3",
+    "nom": "Coût pour la création d'un emploi",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.4",
+    "nom": "Grèves et conflits",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.51",
+    "nom": "Coût de la vie et Prix des produits alimentaires",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "13.5"
+  },
+  {
+    "code": "13.52",
+    "nom": "Coût des facteurs de production",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "13.5"
+  },
+  {
+    "code": "13.53",
+    "nom": "Salaires et Coûts main d'oeuvre (Divers)",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "13.5"
+  },
+  {
+    "code": "13.6",
+    "nom": "Chômage",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.7",
+    "nom": "Précarite",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.8",
+    "nom": "Accident de travail",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "13.9",
+    "nom": "Divers Emplois et Salaires",
+    "type_parent": "Secteur",
+    "parent_ref": "13"
+  },
+  {
+    "code": "14.1",
+    "nom": "MRE",
+    "type_parent": "Secteur",
+    "parent_ref": "14"
+  },
+  {
+    "code": "14.2",
+    "nom": "Travailleurs migrants dans le Monde",
+    "type_parent": "Secteur",
+    "parent_ref": "14"
+  },
+  {
+    "code": "15.11",
+    "nom": "Nombre d'Etablissements et Effectifs d'emplois-HCP",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.12",
+    "nom": "Nombre d'entreprises-OMPIC",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.13",
+    "nom": "Nombre d'entreprises-OMTPME",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.14",
+    "nom": "Nombre d'entreprises-CNSS",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.15",
+    "nom": "Les entreprises étrangères",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.16",
+    "nom": "Nombre d'entreprises-Divers et Commun",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "15.1"
+  },
+  {
+    "code": "15.2",
+    "nom": "Création d'entreprises",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.3",
+    "nom": "Entreprises en difficultés et Faillites",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.4",
+    "nom": "Les Contribuables",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.5",
+    "nom": "Professions libérales",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.6",
+    "nom": "L'Informel",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.7",
+    "nom": "Audit. Comptables. Experts comptables et Conseil.",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "15.8",
+    "nom": "Entreprises_Divers et Commun",
+    "type_parent": "Secteur",
+    "parent_ref": "15"
+  },
+  {
+    "code": "16.1",
+    "nom": "Effectifs de la Fonction publique",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.2",
+    "nom": "Salaires et Masse salariale de la Fonction publique",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.3",
+    "nom": "Collectivités locales",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.4",
+    "nom": "Achats publics",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.5",
+    "nom": "Domaine privé",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.6",
+    "nom": "Etablissements publics et Privatisations",
+    "type_parent": "Secteur",
+    "parent_ref": "16"
+  },
+  {
+    "code": "16.71",
+    "nom": "Activité des Tribunaux",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "16.7"
+  },
+  {
+    "code": "16.72",
+    "nom": "Condamnations et Prisons",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "16.7"
+  },
+  {
+    "code": "16.73",
+    "nom": "Auxiliaire de Justice",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "16.7"
+  },
+  {
+    "code": "17.1",
+    "nom": "Population et Démographie",
+    "type_parent": "Secteur",
+    "parent_ref": "17"
+  },
+  {
+    "code": "17.21",
+    "nom": "Equipement des ménages",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "17.2"
+  },
+  {
+    "code": "17.22",
+    "nom": "Logement et Habitation",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "17.2"
+  },
+  {
+    "code": "17.23",
+    "nom": "Nombre de ménages",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "17.2"
+  },
+  {
+    "code": "17.24",
+    "nom": "Revenu et niveau de vie des Ménages",
+    "type_parent": "Sous_Secteur",
+    "parent_ref": "17.2"
+  },
+  {
+    "code": "17.3",
+    "nom": "Indicateurs socio-démographiques",
+    "type_parent": "Secteur",
+    "parent_ref": "17"
+  },
+  {
+    "code": "17.5",
+    "nom": "Population et Démographie Divers Commun",
+    "type_parent": "Secteur",
+    "parent_ref": "17"
+  },
+  {
+    "code": "18.1",
+    "nom": "Echanges commerciaux",
+    "type_parent": "Secteur",
+    "parent_ref": "18"
+  },
+  {
+    "code": "18.2",
+    "nom": "Exportations",
+    "type_parent": "Secteur",
+    "parent_ref": "18"
+  },
+  {
+    "code": "18.3",
+    "nom": "Importations",
+    "type_parent": "Secteur",
+    "parent_ref": "18"
+  },
+  {
+    "code": "18.4",
+    "nom": "Balance des paiements",
+    "type_parent": "Secteur",
+    "parent_ref": "18"
+  },
+  {
+    "code": "20",
+    "nom": "Superficie agricole & Exploitations",
+    "type_parent": "Domaine",
+    "parent_ref": "2"
+  },
+  {
+    "code": "21.1",
+    "nom": "Production céréalière",
+    "type_parent": "Secteur",
+    "parent_ref": "21"
+  },
+  {
+    "code": "21.2",
+    "nom": "Le Blé dans le commerce mondial",
+    "type_parent": "Secteur",
+    "parent_ref": "21"
+  },
+  {
+    "code": "23.1",
+    "nom": "Fruits",
+    "type_parent": "Secteur",
+    "parent_ref": "23"
+  },
+  {
+    "code": "23.2",
+    "nom": "Fruits et Légumes",
+    "type_parent": "Secteur",
+    "parent_ref": "23"
+  },
+  {
+    "code": "23.3",
+    "nom": "Légumes",
+    "type_parent": "Secteur",
+    "parent_ref": "23"
+  },
+  {
+    "code": "23.4",
+    "nom": "Agrumes",
+    "type_parent": "Secteur",
+    "parent_ref": "23"
+  },
+  {
+    "code": "23.5",
+    "nom": "Olives",
+    "type_parent": "Secteur",
+    "parent_ref": "23"
+  },
+  {
+    "code": "25.1",
+    "nom": "Cheptel",
+    "type_parent": "Secteur",
+    "parent_ref": "25"
+  },
+  {
+    "code": "25.2",
+    "nom": "Abattage et Consommation",
+    "type_parent": "Secteur",
+    "parent_ref": "25"
+  },
+  {
+    "code": "26.1",
+    "nom": "Le secteur avicole - Divers Commun",
+    "type_parent": "Secteur",
+    "parent_ref": "26"
+  },
+  {
+    "code": "26.2",
+    "nom": "Poulet",
+    "type_parent": "Secteur",
+    "parent_ref": "26"
+  },
+  {
+    "code": "26.3",
+    "nom": "Œufs",
+    "type_parent": "Secteur",
+    "parent_ref": "26"
+  },
+  {
+    "code": "27.1",
+    "nom": "Marché des aliments composés",
+    "type_parent": "Secteur",
+    "parent_ref": "27"
+  },
+  {
+    "code": "27.2",
+    "nom": "Secteur agricole - Divers Commun",
+    "type_parent": "Secteur",
+    "parent_ref": "27"
+  },
+  {
+    "code": "28",
+    "nom": "Forêt",
+    "type_parent": "Domaine",
+    "parent_ref": "2"
+  },
+  {
+    "code": "29",
+    "nom": "Pêche",
+    "type_parent": "Domaine",
+    "parent_ref": "2"
+  },
+  {
+    "code": "30",
+    "nom": "Le secteur de l'Industrie",
+    "type_parent": "Domaine",
+    "parent_ref": "3"
+  },
+  {
+    "code": "31.1",
+    "nom": "Phosphates",
+    "type_parent": "Secteur",
+    "parent_ref": "31"
+  },
+  {
+    "code": "31.2",
+    "nom": "Autres produits miniers",
+    "type_parent": "Secteur",
+    "parent_ref": "31"
+  },
+  {
+    "code": "32.1",
+    "nom": "Energie",
+    "type_parent": "Secteur",
+    "parent_ref": "32"
+  },
+  {
+    "code": "32.2",
+    "nom": "Pétrole et Gaz",
+    "type_parent": "Secteur",
+    "parent_ref": "32"
+  },
+  {
+    "code": "32.3",
+    "nom": "Electricité",
+    "type_parent": "Secteur",
+    "parent_ref": "32"
+  },
+  {
+    "code": "33.0",
+    "nom": "Le secteur de la Chimie & Parachimie",
+    "type_parent": "Secteur",
+    "parent_ref": "33"
+  },
+  {
+    "code": "33.1",
+    "nom": "Industrie pharmaceutique",
+    "type_parent": "Secteur",
+    "parent_ref": "33"
+  },
+  {
+    "code": "33.2",
+    "nom": "Plasturgie",
+    "type_parent": "Secteur",
+    "parent_ref": "33"
+  },
+  {
+    "code": "33.3",
+    "nom": "Acide phosphorique et Engrais",
+    "type_parent": "Secteur",
+    "parent_ref": "33"
+  },
+  {
+    "code": "33.4",
+    "nom": "Papier-Carton",
+    "type_parent": "Secteur",
+    "parent_ref": "33"
+  },
+  {
+    "code": "34.1",
+    "nom": "Le secteur Electrique et Electronique.",
+    "type_parent": "Secteur",
+    "parent_ref": "34"
+  },
+  {
+    "code": "34.2",
+    "nom": "Le secteur Mécanique et Métallurgique",
+    "type_parent": "Secteur",
+    "parent_ref": "34"
+  },
+  {
+    "code": "34.3",
+    "nom": "Le secteur Ferroviaire",
+    "type_parent": "Secteur",
+    "parent_ref": "34"
+  },
+  {
+    "code": "34.4",
+    "nom": "Le secteur Naval et des Poids lourds",
+    "type_parent": "Secteur",
+    "parent_ref": "34"
+  },
+  {
+    "code": "35.1",
+    "nom": "Le secteur Automobile",
+    "type_parent": "Secteur",
+    "parent_ref": "35"
+  },
+  {
+    "code": "35.2",
+    "nom": "Automobile - Production-Ventes",
+    "type_parent": "Secteur",
+    "parent_ref": "35"
+  },
+  {
+    "code": "35.3",
+    "nom": "L'Import-Export de l'automobile",
+    "type_parent": "Secteur",
+    "parent_ref": "35"
+  },
+  {
+    "code": "36.1",
+    "nom": "Textile et Habillement",
+    "type_parent": "Secteur",
+    "parent_ref": "36"
+  },
+  {
+    "code": "36.2",
+    "nom": "Cuir",
+    "type_parent": "Secteur",
+    "parent_ref": "36"
+  },
+  {
+    "code": "37.0",
+    "nom": "Le secteur Agroindustriel",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.1",
+    "nom": "Eaux minérales & Boissons.",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.2",
+    "nom": "Lait et Produits dérivés.",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.3",
+    "nom": "Huile et matières grasses.",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.4",
+    "nom": "Industrie céréalière et Minotière",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.5",
+    "nom": "Pain",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.6",
+    "nom": "Sucre",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "37.7",
+    "nom": "Autres produits alimentaires",
+    "type_parent": "Secteur",
+    "parent_ref": "37"
+  },
+  {
+    "code": "38.1",
+    "nom": "Le secteur des Matériaux de construction",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.2",
+    "nom": "Ciment et Cimenteries",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.3",
+    "nom": "Brique et Briqueterie",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.4",
+    "nom": "Marbre",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.5",
+    "nom": "Bois",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.6",
+    "nom": "Carrières",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.7",
+    "nom": "Sidérurgie-Acierie",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "38.8",
+    "nom": "Divers matériaux de construction",
+    "type_parent": "Secteur",
+    "parent_ref": "38"
+  },
+  {
+    "code": "39.1",
+    "nom": "Artisanat",
+    "type_parent": "Secteur",
+    "parent_ref": "39"
+  },
+  {
+    "code": "39.2",
+    "nom": "L'industrie Aéronautique",
+    "type_parent": "Secteur",
+    "parent_ref": "39"
+  },
+  {
+    "code": "39.3",
+    "nom": "Assainissement et gestion des Déchets.",
+    "type_parent": "Secteur",
+    "parent_ref": "39"
+  },
+  {
+    "code": "39.4",
+    "nom": "Matières premières (Cours et prix des)",
+    "type_parent": "Secteur",
+    "parent_ref": "39"
+  },
+  {
+    "code": "41",
+    "nom": "Le secteur du BTP.",
+    "type_parent": "Domaine",
+    "parent_ref": "4"
+  },
+  {
+    "code": "42.1",
+    "nom": "Ponts et Tunnels",
+    "type_parent": "Secteur",
+    "parent_ref": "42"
+  },
+  {
+    "code": "42.2",
+    "nom": "Autres grandes réalisations",
+    "type_parent": "Secteur",
+    "parent_ref": "42"
+  },
+  {
+    "code": "43.0",
+    "nom": "Indices des prix des actifs Immobiliers",
+    "type_parent": "Secteur",
+    "parent_ref": "43"
+  },
+  {
+    "code": "43.1",
+    "nom": "Evolution du prix de l'Immobilier",
+    "type_parent": "Secteur",
+    "parent_ref": "43"
+  },
+  {
+    "code": "43.2",
+    "nom": "La Location",
+    "type_parent": "Secteur",
+    "parent_ref": "43"
+  },
+  {
+    "code": "43.3",
+    "nom": "Autorisations de construire",
+    "type_parent": "Secteur",
+    "parent_ref": "43"
+  },
+  {
+    "code": "43.4",
+    "nom": "Constructions et Production de logements",
+    "type_parent": "Secteur",
+    "parent_ref": "43"
+  },
+  {
+    "code": "51",
+    "nom": "Commerce intérieur",
+    "type_parent": "Domaine",
+    "parent_ref": "5"
+  },
+  {
+    "code": "52",
+    "nom": "Grandes surfaces",
+    "type_parent": "Domaine",
+    "parent_ref": "5"
+  },
+  {
+    "code": "53",
+    "nom": "Franchise",
+    "type_parent": "Domaine",
+    "parent_ref": "5"
+  },
+  {
+    "code": "54",
+    "nom": "Publicité",
+    "type_parent": "Domaine",
+    "parent_ref": "5"
+  },
+  {
+    "code": "61.1",
+    "nom": "Réseau routier et Autoroutes",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "61.2",
+    "nom": "Trafic routier et autoroutier",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "61.3",
+    "nom": "Automobile (autres que Industrie)",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "61.4",
+    "nom": "Transport Urbain",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "61.5",
+    "nom": "Accidents de la route",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "61.6",
+    "nom": "Coûts économiques",
+    "type_parent": "Secteur",
+    "parent_ref": "61"
+  },
+  {
+    "code": "62.1",
+    "nom": "Activité de transport ferroviaire",
+    "type_parent": "Secteur",
+    "parent_ref": "62"
+  },
+  {
+    "code": "62.2",
+    "nom": "Equipement et Infrastructure de transport aérien",
+    "type_parent": "Secteur",
+    "parent_ref": "62"
+  },
+  {
+    "code": "62.3",
+    "nom": "TGV et Lignes de Grande Vitesse.",
+    "type_parent": "Secteur",
+    "parent_ref": "62"
+  },
+  {
+    "code": "62.4",
+    "nom": "Chemins de fer à l'international",
+    "type_parent": "Secteur",
+    "parent_ref": "62"
+  },
+  {
+    "code": "63.1",
+    "nom": "Activité de transport aérien",
+    "type_parent": "Secteur",
+    "parent_ref": "63"
+  },
+  {
+    "code": "63.3",
+    "nom": "Transport aérien - Etranger",
+    "type_parent": "Secteur",
+    "parent_ref": "63"
+  },
+  {
+    "code": "64.1",
+    "nom": "Ports et Trafic maritime",
+    "type_parent": "Secteur",
+    "parent_ref": "64"
+  },
+  {
+    "code": "64.2",
+    "nom": "Coûts fret maritime",
+    "type_parent": "Secteur",
+    "parent_ref": "64"
+  },
+  {
+    "code": "65",
+    "nom": "Poste",
+    "type_parent": "Domaine",
+    "parent_ref": "6"
+  },
+  {
+    "code": "66",
+    "nom": "Télécoms",
+    "type_parent": "Domaine",
+    "parent_ref": "6"
+  },
+  {
+    "code": "67",
+    "nom": "Centres d'appel",
+    "type_parent": "Domaine",
+    "parent_ref": "6"
+  },
+  {
+    "code": "68",
+    "nom": "Ntic",
+    "type_parent": "Domaine",
+    "parent_ref": "6"
+  },
+  {
+    "code": "69",
+    "nom": "Transport et Energie - Divers Commun",
+    "type_parent": "Domaine",
+    "parent_ref": "6"
+  },
+  {
+    "code": "70",
+    "nom": "Etablissements et Sociétés hôtelières",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "71",
+    "nom": "Nuitées et recettes touristiques",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "72",
+    "nom": "Arrivées de touristes",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "73",
+    "nom": "Le secteur touristique",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "74",
+    "nom": "Capacité d'hébergement et occupation",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "75",
+    "nom": "Restauration Collective",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "76",
+    "nom": "Restauration universitaire et Internats",
+    "type_parent": "Domaine",
+    "parent_ref": "7"
+  },
+  {
+    "code": "81",
+    "nom": "Banques",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "82",
+    "nom": "Assurances",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "83",
+    "nom": "Bourse",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "84",
+    "nom": "Micro-crédit",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "85",
+    "nom": "Taux de change",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "86",
+    "nom": "Monnaie",
+    "type_parent": "Domaine",
+    "parent_ref": "8"
+  },
+  {
+    "code": "90.1",
+    "nom": "Insolite",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.2",
+    "nom": "Coût de la Vie humaine.",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.3",
+    "nom": "Indicateurs sociaux-économiques",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.4",
+    "nom": "Endettement",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.5",
+    "nom": "Climat - l'Eau & Déssalement",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.6",
+    "nom": "Investissements",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.7",
+    "nom": "Croissance économique",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.8",
+    "nom": "Inflation et Erosion monétaire",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "90.9",
+    "nom": "Richesse et Inégalités",
+    "type_parent": "Secteur",
+    "parent_ref": "90"
+  },
+  {
+    "code": "91.1",
+    "nom": "Crises économiques et financières",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "91.2",
+    "nom": "Compensation",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "91.3",
+    "nom": "L'Or et Métaux précieux",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "91.4",
+    "nom": "Richesse Globale",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "91.5",
+    "nom": "Militaire et Armement",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "91.6",
+    "nom": "Divers autres grands Thèmes",
+    "type_parent": "Secteur",
+    "parent_ref": "91"
+  },
+  {
+    "code": "92.1",
+    "nom": "Impôts",
+    "type_parent": "Secteur",
+    "parent_ref": "92"
+  }
+] as TaxonomyTheme[],
+};
